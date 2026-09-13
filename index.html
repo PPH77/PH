@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLAYER 1: Web Dev Intern Portfolio</title>
+    <title>PLAYER 1: Full-Stack Developer Portfolio</title>
     <!-- Tailwind CSS for modern responsive utility layout combined with retro custom styles -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Press Start 2P and VT323 for authentic arcade feel -->
@@ -73,6 +73,87 @@
         ::-webkit-scrollbar-thumb {
             background: #ff007f;
         }
+        .version-indicator {
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}/* Project filter buttons */
+.filter-btn {
+    background: #12141c;
+    border: 2px solid #374151;
+    color: #94a3b8;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    transform: translateY(-1px);
+}
+
+/* ALL - Cyan */
+.active-all {
+    background: #00e5ff;
+    border-color: #00e5ff;
+    color: #0b0c10;
+}
+
+/* Graduation - Pink */
+.active-grad {
+    background: #ff007f;
+    border-color: #ff007f;
+    color: #ffffff;
+}
+
+/* University - Cyan */
+.active-uni {
+    background: #00e5ff;
+    border-color: #00e5ff;
+    color: #0b0c10;
+}
+
+/* Personal - Yellow */
+.active-personal {
+    background: #ffea00;
+    border-color: #ffea00;
+    color: #0b0c10;
+}
+
+/* Inactive button colors */
+.grad-btn {
+    color: #ff007f;
+    border-color: #374151;
+}
+
+.grad-btn:hover {
+    border-color: #ff007f;
+    background: rgba(255, 0, 127, 0.08);
+}
+
+.uni-btn {
+    color: #00e5ff;
+    border-color: #374151;
+}
+
+.uni-btn:hover {
+    border-color: #00e5ff;
+    background: rgba(0, 229, 255, 0.08);
+}
+
+.personal-btn {
+    color: #ffea00;
+    border-color: #374151;
+}
+
+.personal-btn:hover {
+    border-color: #ffea00;
+    background: rgba(255, 234, 0, 0.08);
+}
+
+
     </style>
 </head>
 <body class="crt relative min-h-screen flex flex-col justify-between selection:bg-pink-600 selection:text-white">
@@ -116,13 +197,13 @@
         <section id="hero" class="flex flex-col md:flex-row items-center justify-between gap-8 pt-4 pb-8 border-b border-gray-800/80">
             <div class="space-y-4 text-center md:text-left max-w-xl">
                 <div class="inline-block bg-arcadePanel px-3 py-1 border border-arcadeNeonGreen/50 text-arcadeNeonGreen font-arcade text-[10px]">
-                    ★ STATUS: LOOKING FOR JOBS & INTERNSHIPS ★
+                    ★ STATUS: AVAILABLE FOR DEVELOPER ROLES ★
                 </div>
                 <h2 class="text-2xl sm:text-4xl font-arcade text-arcadeYellow tracking-wide leading-tight">
                     PIXEL CRAFTED <br><span class="text-arcadeNeonBlue">WEB SOLUTIONS</span>
                 </h2>
                 <p class="text-lg sm:text-xl text-gray-300 font-vt leading-relaxed">
-                    Full-stack developer building robust web apps, booking systems, and AI-integrated platforms. Computer Science senior at USEK ready for professional engineering challenges.
+                    Full-stack developer building robust web applications, booking systems, and AI-integrated platforms. Computer Science graduate from USEK with hands-on experience across React, Next.js, ASP.NET, PostgreSQL, and modern web architectures.
                 </p>
                 <div class="flex flex-wrap justify-center md:justify-start gap-3 pt-2">
                     <a href="#projects" class="arcade-btn font-arcade text-[10px] px-4 py-3 flex items-center gap-2">
@@ -139,8 +220,8 @@
                 <div class="w-20 h-20 my-2 bg-arcadeDark border border-arcadeNeonBlue/60 flex items-center justify-center relative">
                     <i class="fa-solid fa-user-astronaut text-3xl text-arcadeNeonBlue"></i>
                 </div>
-                <h3 class="font-arcade text-arcadeYellow text-xs mt-1">PLAYER 1 / DEV</h3>
-                <span class="font-arcade text-[9px] text-arcadeNeonGreen mt-1">USEK CS SENIOR</span>
+                <h3 class="font-arcade text-arcadeYellow text-xs mt-1">PETER HASSANE / DEV</h3>
+                <span class="font-arcade text-[9px] text-arcadeNeonGreen mt-1">USEK CS GRADUATE</span>
                 
                 <!-- Skills Icons Grid -->
                 <div class="grid grid-cols-4 gap-2 my-4 w-full px-2">
@@ -199,13 +280,39 @@
                 <p class="font-vt text-lg text-gray-400">University capstone, coursework, and personal systems</p>
             </div>
 
-            <!-- Tab Switcher -->
-            <div class="flex flex-wrap justify-center gap-2">
-                <button onclick="filterProjects('all')" id="btn-all" class="arcade-btn px-3 py-1.5 font-arcade text-[10px]">ALL</button>
-                <button onclick="filterProjects('grad')" id="btn-grad" class="px-3 py-1.5 font-arcade text-[10px] border border-gray-700 text-arcadeNeonPink hover:border-arcadeNeonPink transition">GRADUATION PROJECT</button>
-                <button onclick="filterProjects('uni')" id="btn-uni" class="px-3 py-1.5 font-arcade text-[10px] border border-gray-700 text-arcadeNeonBlue hover:border-arcadeNeonBlue transition">UNI COURSEWORK</button>
-                <button onclick="filterProjects('personal')" id="btn-personal" class="px-3 py-1.5 font-arcade text-[10px] border border-gray-700 text-arcadeYellow hover:border-arcadeYellow transition">PERSONAL QUESTS</button>
-            </div>
+           <!-- Tab Switcher -->
+<div class="flex flex-wrap justify-center gap-2">
+    <button
+        onclick="filterProjects('all')"
+        id="btn-all"
+        class="filter-btn active-all px-3 py-1.5 font-arcade text-[10px]"
+        style="color: #0b0c10;">
+        ALL
+    </button>
+
+    <button
+        onclick="filterProjects('grad')"
+        id="btn-grad"
+        class="filter-btn grad-btn px-3 py-1.5 font-arcade text-[10px]">
+        GRADUATION PROJECT
+    </button>
+
+    <button
+        onclick="filterProjects('uni')"
+        id="btn-uni"
+        class="filter-btn uni-btn px-3 py-1.5 font-arcade text-[10px]">
+        UNI COURSEWORK
+    </button>
+
+    <button
+        onclick="filterProjects('personal')"
+        id="btn-personal"
+        class="filter-btn personal-btn px-3 py-1.5 font-arcade text-[10px]">
+        PERSONAL QUESTS
+    </button>
+</div>
+
+
 
             <!-- Project Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="project-container">
@@ -362,7 +469,7 @@
                     <div class="absolute -left-[31px] top-5 w-3 h-3 bg-arcadeDark border-2 border-arcadeNeonPink rounded-full"></div>
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1">
                         <h3 class="font-arcade text-xs text-arcadeYellow">Holy Spirit University of Kaslik (USEK)</h3>
-                        <span class="font-arcade text-[9px] text-arcadeNeonPink">2022 - PRESENT</span>
+                        <span class="font-arcade text-[9px] text-arcadeNeonPink">2022 - 2026</span>
                     </div>
                     <p class="font-arcade text-[10px] text-arcadeNeonBlue">Bachelor of Science in Computer Science</p>
                     <p class="font-vt text-lg text-gray-300">
@@ -420,11 +527,12 @@
 
     <footer class="w-full border-t border-gray-800 bg-arcadeDark py-5 text-center font-arcade text-[10px] text-gray-500 space-y-2">
         <div class="flex justify-center gap-5 text-base">
-            <a href="https://github.com" target="_blank" class="text-arcadeNeonBlue hover:text-white transition"><i class="fa-brands fa-github"></i></a>
-            <a href="https://linkedin.com" target="_blank" class="text-arcadeNeonPink hover:text-white transition"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/pph77" target="_blank" class="text-arcadeNeonBlue hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/peter-hassane" target="_blank" class="text-arcadeNeonPink hover:text-white transition"><i class="fa-brands fa-linkedin"></i></a>
             <a href="mailto:contact@example.com" class="text-arcadeNeonGreen hover:text-white transition"><i class="fa-solid fa-envelope"></i></a>
         </div>
         <p>© 2026 PLAYER 1 - WEB DEV PORTFOLIO</p>
+        <span class="version-indicator" aria-label="Version 1.0.0">v1.0.0</span>
     </footer>
 
     <script>
@@ -441,43 +549,55 @@
             }
         }
 
-        // Project filtering logic
-        function filterProjects(category) {
-            const cards = document.querySelectorAll('.project-card');
-            const btnAll = document.getElementById('btn-all');
-            const btnGrad = document.getElementById('btn-grad');
-            const btnUni = document.getElementById('btn-uni');
-            const btnPersonal = document.getElementById('btn-personal');
+       function filterProjects(category) {
+    const cards = document.querySelectorAll('.project-card');
+    const buttons = document.querySelectorAll('.filter-btn');
 
-            // Reset button styles
-            btnAll.className = "px-3 py-1.5 font-arcade text-[10px] border border-gray-700 text-gray-400 hover:border-gray-500 transition";
-            btnGrad.className = "px-3 py-1.5 font-arcade text-[10px] border border-gray-700 text-arcadeNeonPink hover:border-arcadeNeonPink transition";
-            btnUni.className = "px-3 py-1.5 font-arcade text-[10px] border border-gray-700 text-arcadeNeonBlue hover:border-arcadeNeonBlue transition";
-            btnPersonal.className = "px-3 py-1.5 font-arcade text-[10px] border border-gray-700 text-arcadeYellow hover:border-arcadeYellow transition";
+    // Reset all buttons
+    buttons.forEach(button => {
+        button.classList.remove(
+            'active-all',
+            'active-grad',
+            'active-uni',
+            'active-personal'
+        );
 
-            if(category === 'all') {
-                btnAll.className = "arcade-btn px-3 py-1.5 font-arcade text-[10px]";
-                cards.forEach(card => card.style.display = 'flex');
-            } else if(category === 'grad') {
-                btnGrad.className = "arcade-btn px-3 py-1.5 font-arcade text-[10px]";
-                cards.forEach(card => {
-                    if(card.classList.contains('grad')) card.style.display = 'flex';
-                    else card.style.display = 'none';
-                });
-            } else if(category === 'uni') {
-                btnUni.className = "arcade-btn px-3 py-1.5 font-arcade text-[10px]";
-                cards.forEach(card => {
-                    if(card.classList.contains('uni')) card.style.display = 'flex';
-                    else card.style.display = 'none';
-                });
-            } else if(category === 'personal') {
-                btnPersonal.className = "arcade-btn px-3 py-1.5 font-arcade text-[10px]";
-                cards.forEach(card => {
-                    if(card.classList.contains('personal')) card.style.display = 'flex';
-                    else card.style.display = 'none';
-                });
-            }
+        // Reset text color
+        button.style.color = '';
+    });
+
+    // Get selected button
+    const activeButton = document.getElementById(`btn-${category}`);
+
+    // Apply active background + correct text color
+    if (category === 'all') {
+        activeButton.classList.add('active-all');
+        activeButton.style.color = '#0b0c10';
+    } 
+    else if (category === 'grad') {
+        activeButton.classList.add('active-grad');
+        activeButton.style.color = '#ffffff';
+    } 
+    else if (category === 'uni') {
+        activeButton.classList.add('active-uni');
+        activeButton.style.color = '#0b0c10';
+    } 
+    else if (category === 'personal') {
+        activeButton.classList.add('active-personal');
+        activeButton.style.color = '#0b0c10';
+    }
+
+    // Filter project cards
+    cards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
         }
+    });
+}
+
+
 
         // Form submission feedback
         function handleFormSubmit(event) {
