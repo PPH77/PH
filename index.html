@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAYER 1: Web Dev Intern Portfolio</title>
+    <!-- Tailwind CSS for modern responsive utility layout combined with retro custom styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Press Start 2P and VT323 for authentic arcade feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <!-- FontAwesome for arcade icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        arcade: ['"Press Start 2P"', 'monospace'],
+                        vt: ['"VT323"', 'monospace'],
+                    },
+                    colors: {
+                        arcadeDark: '#0b0c10',
+                        arcadePanel: '#12141c',
+                        arcadeNeonPink: '#ff007f',
+                        arcadeNeonBlue: '#00e5ff',
+                        arcadeNeonGreen: '#00ff66',
+                        arcadeYellow: '#ffea00',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b0c10;
+            color: #94a3b8;
+            font-family: 'VT323', monospace;
+            overflow-x: hidden;
+            font-size: 1.25rem;
+        }
+
+        /* Subtle scanlines for retro depth */
+        .crt::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+            z-index: 99999;
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+
+        /* Clean retro button styling */
+        .arcade-btn {
+            background: #12141c;
+            border: 2px solid #00e5ff;
+            color: #00e5ff;
+            transition: all 0.2s ease;
+        }
+        .arcade-btn:hover {
+            background: #00e5ff;
+            color: #0b0c10;
+        }
+
+        /* Scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0c10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ff007f;
+        }
+    </style>
+</head>
+<body class="crt relative min-h-screen flex flex-col justify-between selection:bg-pink-600 selection:text-white">
+
+    <header class="w-full border-b border-gray-800 bg-arcadeDark/95 backdrop-blur sticky top-0 z-50 px-4 py-3">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-2.5 h-2.5 bg-arcadeNeonPink"></div>
+                <h1 class="font-arcade text-arcadeNeonPink text-xs sm:text-sm tracking-wider">
+                    P1: WEB_DEV_PORTFOLIO
+                </h1>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-6 font-arcade text-[10px]">
+                <a href="#hero" class="text-arcadeNeonBlue hover:text-white transition duration-200">INSERT COIN</a>
+                <a href="#experience" class="text-arcadeYellow hover:text-white transition duration-200">EXPERIENCE</a>
+                <a href="#projects" class="text-arcadeNeonGreen hover:text-white transition duration-200">MISSIONS</a>
+                <a href="#education" class="text-arcadeNeonPink hover:text-white transition duration-200">LEVELS</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition duration-200">HIGH SCORES</a>
+            </nav>
+
+            <!-- Mobile Hamburger Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden arcade-btn px-2.5 py-1.5 text-arcadeNeonBlue flex items-center justify-center">
+                <i id="menu-icon" class="fa-solid fa-bars text-base"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden pt-3 pb-2 border-t border-gray-800 mt-2 flex flex-col space-y-2 font-arcade text-[10px]">
+            <a href="#hero" onclick="toggleMobileMenu()" class="px-3 py-2 text-arcadeNeonBlue hover:bg-arcadeNeonBlue hover:text-black transition text-center">INSERT COIN</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="px-3 py-2 text-arcadeYellow hover:bg-arcadeYellow hover:text-black transition text-center">EXPERIENCE</a>
+            <a href="#projects" onclick="toggleMobileMenu()" class="px-3 py-2 text-arcadeNeonGreen hover:bg-arcadeNeonGreen hover:text-black transition text-center">MISSIONS</a>
+            <a href="#education" onclick="toggleMobileMenu()" class="px-3 py-2 text-arcadeNeonPink hover:bg-arcadeNeonPink hover:text-black transition text-center">LEVELS</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="px-3 py-2 text-white hover:bg-white hover:text-black transition text-center">HIGH SCORES</a>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-5xl mx-auto px-4 py-8 w-full space-y-16">
+        
+        <section id="hero" class="flex flex-col md:flex-row items-center justify-between gap-8 pt-4 pb-8 border-b border-gray-800/80">
+            <div class="space-y-4 text-center md:text-left max-w-xl">
+                <div class="inline-block bg-arcadePanel px-3 py-1 border border-arcadeNeonGreen/50 text-arcadeNeonGreen font-arcade text-[10px]">
+                    ★ STATUS: LOOKING FOR JOBS & INTERNSHIPS ★
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-arcade text-arcadeYellow tracking-wide leading-tight">
+                    PIXEL CRAFTED <br><span class="text-arcadeNeonBlue">WEB SOLUTIONS</span>
+                </h2>
+                <p class="text-lg sm:text-xl text-gray-300 font-vt leading-relaxed">
+                    Full-stack developer building robust web apps, booking systems, and AI-integrated platforms. Computer Science senior at USEK ready for professional engineering challenges.
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-3 pt-2">
+                    <a href="#projects" class="arcade-btn font-arcade text-[10px] px-4 py-3 flex items-center gap-2">
+                        <i class="fa-solid fa-gamepad"></i> START GAME
+                    </a>
+                    <a href="#contact" class="px-4 py-3 border border-arcadeNeonPink text-arcadeNeonPink font-arcade text-[10px] hover:bg-arcadeNeonPink hover:text-white transition duration-200 flex items-center gap-2">
+                        <i class="fa-solid fa-envelope"></i> CONTACT P1
+                    </a>
+                </div>
+            </div>
+
+            <!-- Character Card with Skills & Icons -->
+            <div class="w-full max-w-xs bg-arcadePanel border border-gray-800 p-5 relative flex flex-col items-center text-center">
+                <div class="w-20 h-20 my-2 bg-arcadeDark border border-arcadeNeonBlue/60 flex items-center justify-center relative">
+                    <i class="fa-solid fa-user-astronaut text-3xl text-arcadeNeonBlue"></i>
+                </div>
+                <h3 class="font-arcade text-arcadeYellow text-xs mt-1">PLAYER 1 / DEV</h3>
+                <span class="font-arcade text-[9px] text-arcadeNeonGreen mt-1">USEK CS SENIOR</span>
+                
+                <!-- Skills Icons Grid -->
+                <div class="grid grid-cols-4 gap-2 my-4 w-full px-2">
+                    <div class="bg-arcadeDark border border-gray-700 p-2 flex flex-col items-center justify-center" title="React / Next.js">
+                        <i class="fa-brands fa-react text-arcadeNeonBlue text-base"></i>
+                        <span class="text-[8px] font-arcade mt-1 text-gray-400">REACT</span>
+                    </div>
+                    <div class="bg-arcadeDark border border-gray-700 p-2 flex flex-col items-center justify-center" title="C# / .NET">
+                        <i class="fa-solid fa-code text-arcadeYellow text-base"></i>
+                        <span class="text-[8px] font-arcade mt-1 text-gray-400">.NET</span>
+                    </div>
+                    <div class="bg-arcadeDark border border-gray-700 p-2 flex flex-col items-center justify-center" title="Java">
+                        <i class="fa-brands fa-java text-arcadeNeonPink text-base"></i>
+                        <span class="text-[8px] font-arcade mt-1 text-gray-400">JAVA</span>
+                    </div>
+                    <div class="bg-arcadeDark border border-gray-700 p-2 flex flex-col items-center justify-center" title="PostgreSQL">
+                        <i class="fa-solid fa-database text-arcadeNeonGreen text-base"></i>
+                        <span class="text-[8px] font-arcade mt-1 text-gray-400">SQL</span>
+                    </div>
+                </div>
+
+                <div class="text-left w-full space-y-1 font-vt text-lg text-gray-400 border-t border-gray-800 pt-3">
+                    <div class="flex justify-between"><span>CLASS:</span> <span class="text-arcadeNeonBlue">Full-Stack Engineer</span></div>
+                    <div class="flex justify-between"><span>STATUS:</span> <span class="text-arcadeNeonPink">Seeking Opportunities</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="space-y-6">
+            <div class="text-center space-y-1">
+                <h2 class="font-arcade text-sm sm:text-lg text-arcadeYellow">&gt; PROFESSIONAL EXPERIENCE</h2>
+                <p class="font-vt text-lg text-gray-400">Industry contributions and internships</p>
+            </div>
+
+            <div class="max-w-2xl mx-auto bg-arcadePanel border border-gray-800 p-6 relative space-y-3">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1">
+                    <h3 class="font-arcade text-xs text-arcadeYellow">Web Development Intern</h3>
+                    <span class="font-arcade text-[9px] text-arcadeNeonGreen">JULY 2025 – AUGUST 2025</span>
+                </div>
+                <p class="font-arcade text-[10px] text-arcadeNeonBlue">Inmobiles Holding — Mkalles, Lebanon</p>
+                <p class="font-vt text-lg text-gray-300 leading-relaxed">
+                    Contributed directly to the full-stack development of a high-performance booking system project. Developed scalable features and connected backend workflows across modern architectures.
+                </p>
+                <div class="flex flex-wrap gap-1.5 pt-2 border-t border-gray-800">
+                    <span class="text-[9px] font-arcade bg-gray-900 text-arcadeNeonGreen px-2 py-0.5">React</span>
+                    <span class="text-[9px] font-arcade bg-gray-900 text-arcadeNeonBlue px-2 py-0.5">Next.js</span>
+                    <span class="text-[9px] font-arcade bg-gray-900 text-arcadeYellow px-2 py-0.5">ASP.NET</span>
+                    <span class="text-[9px] font-arcade bg-gray-900 text-arcadeNeonPink px-2 py-0.5">PostgreSQL</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="space-y-6">
+            <div class="text-center space-y-1">
+                <h2 class="font-arcade text-sm sm:text-lg text-arcadeNeonGreen">&gt; SELECT MISSION (PROJECTS)</h2>
+                <p class="font-vt text-lg text-gray-400">University capstone, coursework, and personal systems</p>
+            </div>
+
+            <!-- Tab Switcher -->
+            <div class="flex flex-wrap justify-center gap-2">
+                <button onclick="filterProjects('all')" id="btn-all" class="arcade-btn px-3 py-1.5 font-arcade text-[10px]">ALL</button>
+                <button onclick="filterProjects('grad')" id="btn-grad" class="px-3 py-1.5 font-arcade text-[10px] border border-gray-700 text-arcadeNeonPink hover:border-arcadeNeonPink transition">GRADUATION PROJECT</button>
+                <button onclick="filterProjects('uni')" id="btn-uni" class="px-3 py-1.5 font-arcade text-[10px] border border-gray-700 text-arcadeNeonBlue hover:border-arcadeNeonBlue transition">UNI COURSEWORK</button>
+                <button onclick="filterProjects('personal')" id="btn-personal" class="px-3 py-1.5 font-arcade text-[10px] border border-gray-700 text-arcadeYellow hover:border-arcadeYellow transition">PERSONAL QUESTS</button>
+            </div>
+
+            <!-- Project Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="project-container">
+                
+                <!-- Graduation Project: Silento -->
+                <div class="project-card grad bg-arcadePanel border border-gray-800 p-5 flex flex-col justify-between space-y-3">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-arcade text-[9px] text-arcadeNeonPink">CAPSTONE / USEK</span>
+                            <span class="font-arcade text-[9px] text-arcadeYellow">FINAL YEAR</span>
+                        </div>
+                        <h3 class="font-arcade text-xs text-arcadeYellow mb-1">Silento (Silent Cafe Locator)</h3>
+                        <p class="font-vt text-lg text-gray-300">Full-stack web-based silent cafe locator featuring map & card views, browsing, bookmarking, filtering, and admin panel with JWT & OTP authentication.</p>
+                        <p class="font-vt text-base text-gray-400 mt-2">Integrated Google Places API & Gemini AI to calculate custom silent scores based on fetched user reviews.</p>
+                    </div>
+                    <div class="space-y-2 pt-2 border-t border-gray-800">
+                        <div class="flex flex-wrap gap-1">
+                            <span class="text-[9px] font-arcade bg-gray-900 text-arcadeNeonGreen px-1.5 py-0.5">Next.js / React</span>
+                            <span class="text-[9px] font-arcade bg-gray-900 text-arcadeNeonBlue px-1.5 py-0.5">ASP.NET</span>
+                            <span class="text-[9px] font-arcade bg-gray-900 text-arcadeYellow px-1.5 py-0.5">PostgreSQL/PostGIS</span>
+                            <span class="text-[9px] font-arcade bg-gray-900 text-arcadeNeonPink px-1.5 py-0.5">Gemini AI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Project: Kanban Task Manager -->
+                <div class="project-card personal bg-arcadePanel border border-gray-800 p-5 flex flex-col justify-between space-y-3">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-arcade text-[9px] text-arcadeYellow">SIDE QUEST</span>
+                            <span class="font-arcade text-[9px] text-gray-500">FULL-STACK</span>
+                        </div>
+                        <h3 class="font-arcade text-xs text-arcadeYellow mb-1">Kanban Task Manager</h3>
+                        <p class="font-vt text-lg text-gray-300">Full-stack task management web app with a Kanban board (To Do, In Progress, Done) supporting standalone and project-based workflows.</p>
+                        <p class="font-vt text-base text-gray-400 mt-2">Includes JWT & Google OAuth, task prioritization, subtasks, progress tracking, and custom sorting.</p>
+                    </div>
+                    <div class="space-y-2 pt-2 border-t border-gray-800">
+                        <div class="flex flex-wrap gap-1">
+                            <span class="text-[9px] font-arcade bg-gray-900 text-arcadeNeonGreen px-1.5 py-0.5">Next.js / React</span>
+                            <span class="text-[9px] font-arcade bg-gray-900 text-arcadeNeonBlue px-1.5 py-0.5">ASP.NET</span>
+                            <span class="text-[9px] font-arcade bg-gray-900 text-arcadeYellow px-1.5 py-0.5">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Project: Hospital Management System -->
+                <div class="project-card personal bg-arcadePanel border border-gray-800 p-5 flex flex-col justify-between space-y-3">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-arcade text-[9px] text-arcadeYellow">SIDE QUEST</span>
+                            <span class="font-arcade text-[9px] text-gray-500">JAVA SYSTEM</span>
+                        </div>
+                        <h3 class="font-arcade text-xs text-arcadeYellow mb-1">Hospital Management System</h3>
+                        <p class="font-vt text-lg text-gray-300">Java console-based RBAC system with token and MFA authentication (simulated using Mailtrap) and full CRUD for patients, doctors, and appointments.</p>
+                        <p class="font-vt text-base text-gray-400 mt-2">Global search and integration with the OpenFDA API for on-demand drug information and details.</p>
+                    </div>
+                    <div class="space-y-2 pt-2 border-t border-gray-800">
+                        <div class="flex flex-wrap gap-1">
+                            <span class="text-[9px] font-arcade bg-gray-900 text-arcadeNeonGreen px-1.5 py-0.5">Java</span>
+                            <span class="text-[9px] font-arcade bg-gray-900 text-arcadeNeonBlue px-1.5 py-0.5">RBAC & MFA</span>
+                            <span class="text-[9px] font-arcade bg-gray-900 text-arcadeYellow px-1.5 py-0.5">OpenFDA API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- University Project: Car Price Prediction Model -->
+                <div class="project-card uni bg-arcadePanel border border-gray-800 p-5 flex flex-col justify-between space-y-3">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-arcade text-[9px] text-arcadeNeonBlue">UNI / USEK</span>
+                            <span class="font-arcade text-[9px] text-gray-500">ML COURSE</span>
+                        </div>
+                        <h3 class="font-arcade text-xs text-arcadeYellow mb-1">Car Price Prediction Model</h3>
+                        <p class="font-vt text-lg text-gray-300">Machine learning regression model using Linear Regression and Random Forest to predict car prices with rigorous data processing and feature scaling.</p>
+                        <p class="font-vt text-base text-gray-400 mt-2">Visualized metrics including MAE, MSE, and R² for evaluation.</p>
+                    </div>
+                    <div class="space-y-2 pt-2 border-t border-gray-800">
+                        <div class="flex flex-wrap gap-1">
+                            <span class="text-[9px] font-arcade bg-gray-900 text-arcadeNeonGreen px-1.5 py-0.5">Python</span>
+                            <span class="text-[9px] font-arcade bg-gray-900 text-arcadeNeonBlue px-1.5 py-0.5">Scikit-Learn</span>
+                            <span class="text-[9px] font-arcade bg-gray-900 text-arcadeYellow px-1.5 py-0.5">Pandas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- University Project: Budget Planner App -->
+                <div class="project-card uni bg-arcadePanel border border-gray-800 p-5 flex flex-col justify-between space-y-3">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-arcade text-[9px] text-arcadeNeonBlue">UNI / USEK</span>
+                            <span class="font-arcade text-[9px] text-gray-500">OOP COURSE</span>
+                        </div>
+                        <h3 class="font-arcade text-xs text-arcadeYellow mb-1">Budget Planner App</h3>
+                        <p class="font-vt text-lg text-gray-300">Desktop budget planner application built using Java and JavaFX following strict OOP principles (encapsulation, inheritance, polymorphism).</p>
+                        <p class="font-vt text-base text-gray-400 mt-2">Tracks income and expenses dynamically through an interactive GUI.</p>
+                    </div>
+                    <div class="space-y-2 pt-2 border-t border-gray-800">
+                        <div class="flex flex-wrap gap-1">
+                            <span class="text-[9px] font-arcade bg-gray-900 text-arcadeNeonGreen px-1.5 py-0.5">Java</span>
+                            <span class="text-[9px] font-arcade bg-gray-900 text-arcadeNeonBlue px-1.5 py-0.5">JavaFX</span>
+                            <span class="text-[9px] font-arcade bg-gray-900 text-arcadeYellow px-1.5 py-0.5">OOP Design</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Dedicated Skills & Tech Stack Section with Icons -->
+        <section id="skills" class="space-y-6">
+            <div class="text-center space-y-1">
+                <h2 class="font-arcade text-sm sm:text-lg text-arcadeNeonBlue">&gt; INVENTORY / SKILLS &amp; TECH STACK</h2>
+                <p class="font-vt text-lg text-gray-400">Equipped weapons and power-ups for development</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="bg-arcadePanel border border-gray-800 p-4 flex flex-col items-center justify-center text-center space-y-2">
+                    <i class="fa-brands fa-react text-2xl text-arcadeNeonBlue"></i>
+                    <span class="font-arcade text-[10px] text-gray-200">REACT / NEXT</span>
+                </div>
+                <div class="bg-arcadePanel border border-gray-800 p-4 flex flex-col items-center justify-center text-center space-y-2">
+                    <i class="fa-solid fa-code text-2xl text-arcadeYellow"></i>
+                    <span class="font-arcade text-[10px] text-gray-200">ASP.NET / C#</span>
+                </div>
+                <div class="bg-arcadePanel border border-gray-800 p-4 flex flex-col items-center justify-center text-center space-y-2">
+                    <i class="fa-brands fa-java text-2xl text-arcadeNeonPink"></i>
+                    <span class="font-arcade text-[10px] text-gray-200">JAVA / JAVAFX</span>
+                </div>
+                <div class="bg-arcadePanel border border-gray-800 p-4 flex flex-col items-center justify-center text-center space-y-2">
+                    <i class="fa-solid fa-database text-2xl text-arcadeNeonGreen"></i>
+                    <span class="font-arcade text-[10px] text-gray-200">POSTGRESQL</span>
+                </div>
+                <div class="bg-arcadePanel border border-gray-800 p-4 flex flex-col items-center justify-center text-center space-y-2">
+                    <i class="fa-brands fa-python text-2xl text-arcadeNeonBlue"></i>
+                    <span class="font-arcade text-[10px] text-gray-200">PYTHON / ML</span>
+                </div>
+                <div class="bg-arcadePanel border border-gray-800 p-4 flex flex-col items-center justify-center text-center space-y-2">
+                    <i class="fa-solid fa-cloud-arrow-up text-2xl text-arcadeYellow"></i>
+                    <span class="font-arcade text-[10px] text-gray-200">REST APIS</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="space-y-6">
+            <div class="text-center space-y-1">
+                <h2 class="font-arcade text-sm sm:text-lg text-arcadeNeonPink">&gt; STAGE SELECT: EDUCATION</h2>
+                <p class="font-vt text-lg text-gray-400">Academic checkpoints and foundations</p>
+            </div>
+
+            <div class="max-w-2xl mx-auto space-y-4 relative border-l border-gray-800 ml-4 sm:ml-auto pl-6">
+                
+                <!-- University Education -->
+                <div class="relative bg-arcadePanel border border-gray-800 p-5 space-y-2">
+                    <div class="absolute -left-[31px] top-5 w-3 h-3 bg-arcadeDark border-2 border-arcadeNeonPink rounded-full"></div>
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1">
+                        <h3 class="font-arcade text-xs text-arcadeYellow">Holy Spirit University of Kaslik (USEK)</h3>
+                        <span class="font-arcade text-[9px] text-arcadeNeonPink">2022 - PRESENT</span>
+                    </div>
+                    <p class="font-arcade text-[10px] text-arcadeNeonBlue">Bachelor of Science in Computer Science</p>
+                    <p class="font-vt text-lg text-gray-300">
+                        Focusing on software engineering, algorithms, database design, full-stack architectures, and machine learning. Completing capstone and practical projects.
+                    </p>
+                </div>
+
+                <!-- High School Education -->
+                <div class="relative bg-arcadePanel border border-gray-800 p-5 space-y-2">
+                    <div class="absolute -left-[31px] top-5 w-3 h-3 bg-arcadeDark border-2 border-gray-600 rounded-full"></div>
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1">
+                        <h3 class="font-arcade text-xs text-gray-200">High School Diploma (General Sciences)</h3>
+                        <span class="font-arcade text-[9px] text-gray-400">GRADUATED 2022</span>
+                    </div>
+                    <p class="font-arcade text-[10px] text-gray-400">Secondary Education Foundation</p>
+                    <p class="font-vt text-lg text-gray-400">
+                        Solid foundation in mathematics, logic, and analytical problem-solving that sparked early interest in computer scripting and development.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact" class="space-y-6 pb-8">
+            <div class="text-center space-y-1">
+                <h2 class="font-arcade text-sm sm:text-lg text-arcadeNeonPink">&gt; HIGH SCORE: CONTACT P1</h2>
+                <p class="font-vt text-lg text-gray-400">Transmit a message across the network</p>
+            </div>
+
+            <div class="max-w-md mx-auto bg-arcadePanel border border-gray-800 p-6 relative">
+                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-3">
+                    <div>
+                        <label class="block font-arcade text-[10px] text-arcadeYellow mb-1">PLAYER NAME:</label>
+                        <input type="text" required class="w-full bg-arcadeDark border border-gray-700 p-2.5 font-vt text-lg text-white focus:outline-none focus:border-arcadeNeonBlue" placeholder="Your name or company...">
+                    </div>
+                    <div>
+                        <label class="block font-arcade text-[10px] text-arcadeNeonBlue mb-1">EMAIL:</label>
+                        <input type="email" required class="w-full bg-arcadeDark border border-gray-700 p-2.5 font-vt text-lg text-white focus:outline-none focus:border-arcadeNeonBlue" placeholder="player@domain.com">
+                    </div>
+                    <div>
+                        <label class="block font-arcade text-[10px] text-arcadeNeonGreen mb-1">MESSAGE:</label>
+                        <textarea rows="3" required class="w-full bg-arcadeDark border border-gray-700 p-2.5 font-vt text-lg text-white focus:outline-none focus:border-arcadeNeonBlue" placeholder="Discussing job or internship opportunities..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full arcade-btn font-arcade text-[10px] py-3 uppercase mt-1">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> TRANSMIT MESSAGE
+                    </button>
+                </form>
+
+                <div id="form-success" class="hidden mt-4 p-4 bg-arcadeDark border border-arcadeNeonGreen text-arcadeNeonGreen font-vt text-xl text-center">
+                    SUCCESS! TRANSMISSION SENT TO P1.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full border-t border-gray-800 bg-arcadeDark py-5 text-center font-arcade text-[10px] text-gray-500 space-y-2">
+        <div class="flex justify-center gap-5 text-base">
+            <a href="https://github.com" target="_blank" class="text-arcadeNeonBlue hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="text-arcadeNeonPink hover:text-white transition"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:contact@example.com" class="text-arcadeNeonGreen hover:text-white transition"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <p>© 2026 PLAYER 1 - WEB DEV PORTFOLIO</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle logic
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if(menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.className = "fa-solid fa-xmark text-base";
+            } else {
+                menu.classList.add('hidden');
+                icon.className = "fa-solid fa-bars text-base";
+            }
+        }
+
+        // Project filtering logic
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const btnAll = document.getElementById('btn-all');
+            const btnGrad = document.getElementById('btn-grad');
+            const btnUni = document.getElementById('btn-uni');
+            const btnPersonal = document.getElementById('btn-personal');
+
+            // Reset button styles
+            btnAll.className = "px-3 py-1.5 font-arcade text-[10px] border border-gray-700 text-gray-400 hover:border-gray-500 transition";
+            btnGrad.className = "px-3 py-1.5 font-arcade text-[10px] border border-gray-700 text-arcadeNeonPink hover:border-arcadeNeonPink transition";
+            btnUni.className = "px-3 py-1.5 font-arcade text-[10px] border border-gray-700 text-arcadeNeonBlue hover:border-arcadeNeonBlue transition";
+            btnPersonal.className = "px-3 py-1.5 font-arcade text-[10px] border border-gray-700 text-arcadeYellow hover:border-arcadeYellow transition";
+
+            if(category === 'all') {
+                btnAll.className = "arcade-btn px-3 py-1.5 font-arcade text-[10px]";
+                cards.forEach(card => card.style.display = 'flex');
+            } else if(category === 'grad') {
+                btnGrad.className = "arcade-btn px-3 py-1.5 font-arcade text-[10px]";
+                cards.forEach(card => {
+                    if(card.classList.contains('grad')) card.style.display = 'flex';
+                    else card.style.display = 'none';
+                });
+            } else if(category === 'uni') {
+                btnUni.className = "arcade-btn px-3 py-1.5 font-arcade text-[10px]";
+                cards.forEach(card => {
+                    if(card.classList.contains('uni')) card.style.display = 'flex';
+                    else card.style.display = 'none';
+                });
+            } else if(category === 'personal') {
+                btnPersonal.className = "arcade-btn px-3 py-1.5 font-arcade text-[10px]";
+                cards.forEach(card => {
+                    if(card.classList.contains('personal')) card.style.display = 'flex';
+                    else card.style.display = 'none';
+                });
+            }
+        }
+
+        // Form submission feedback
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            const successBox = document.getElementById('form-success');
+            
+            form.style.display = 'none';
+            successBox.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
