@@ -8,424 +8,63 @@ Portfolio v2.0.0
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PLAYER 1 — Peter Hassane | Full-Stack Developer</title>
-<meta
-    name="description"
-    content="Portfolio of Peter Hassane, a full-stack developer specializing in React, Next.js, ASP.NET, PostgreSQL and modern web applications."
->
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
-    rel="stylesheet"
->
+    <title>PLAYER 1 — Peter Hassane | Full-Stack Developer</title>
 
-<!-- Font Awesome -->
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
->
+    <meta
+        name="description"
+        content="Portfolio of Peter Hassane, a full-stack developer specializing in React, Next.js, ASP.NET, PostgreSQL and modern web applications."
+    >
 
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                fontFamily: {
-                    arcade: ['"Press Start 2P"', 'monospace'],
-                    vt: ['"VT323"', 'monospace']
-                },
-                colors: {
-                    arcadeDark: '#0b0c10',
-                    arcadePanel: '#12141c',
-                    arcadePanelLight: '#181b25',
-                    neonPink: '#ff007f',
-                    neonBlue: '#00e5ff',
-                    neonGreen: '#00ff66',
-                    neonYellow: '#ffea00'
+    <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        arcade: ['"Press Start 2P"', 'monospace'],
+                        vt: ['"VT323"', 'monospace']
+                    },
+                    colors: {
+                        arcadeDark: '#0b0c10',
+                        arcadePanel: '#12141c',
+                        arcadePanelLight: '#181b25',
+                        neonPink: '#ff007f',
+                        neonBlue: '#00e5ff',
+                        neonGreen: '#00ff66',
+                        neonYellow: '#ffea00'
+                    }
                 }
             }
-        }
-    };
-</script>
+        };
+    </script>
 
-<style>
-    :root {
-        --bg: #0b0c10;
-        --panel: #12141c;
-        --panel-light: #181b25;
-        --border: #292d38;
-        --muted: #94a3b8;
-        --pink: #ff007f;
-        --blue: #00e5ff;
-        --green: #00ff66;
-        --yellow: #ffea00;
-    }
-
-    * {
-        scroll-behavior: smooth;
-    }
-
-    html {
-        scroll-padding-top: 80px;
-    }
-
-    body {
-        margin: 0;
-        min-height: 100vh;
-        overflow-x: hidden;
-        background:
-            radial-gradient(
-                circle at 50% -10%,
-                rgba(0, 229, 255, 0.06),
-                transparent 35%
-            ),
-            var(--bg);
-        color: var(--muted);
-        font-family: 'VT323', monospace;
-        font-size: 1.25rem;
-    }
-
-    ::selection {
-        background: var(--pink);
-        color: white;
-    }
-
-    ::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: var(--bg);
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: var(--pink);
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: var(--blue);
-    }
-
-    /* CRT overlay */
-    .crt::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        z-index: 9999;
-        pointer-events: none;
-        background:
-            linear-gradient(
-                rgba(18, 16, 16, 0) 50%,
-                rgba(0, 0, 0, 0.08) 50%
-            );
-        background-size: 100% 4px;
-        opacity: 0.45;
-    }
-
-    .crt::after {
-        content: "";
-        position: fixed;
-        inset: 0;
-        z-index: 9998;
-        pointer-events: none;
-        background: radial-gradient(
-            ellipse at center,
-            transparent 60%,
-            rgba(0, 0, 0, 0.2) 100%
-        );
-    }
-
-    /* Shared surfaces */
-    .arcade-panel {
-        background: var(--panel);
-        border: 1px solid var(--border);
-        transition:
-            border-color 0.2s ease,
-            transform 0.2s ease,
-            box-shadow 0.2s ease;
-    }
-
-    .arcade-panel:hover {
-        border-color: #3b4150;
-    }
-
-    .arcade-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.55rem;
-        border: 2px solid var(--blue);
-        background: var(--panel);
-        color: var(--blue);
-        transition:
-            background 0.2s ease,
-            color 0.2s ease,
-            transform 0.2s ease,
-            box-shadow 0.2s ease;
-    }
-
-    .arcade-btn:hover {
-        background: var(--blue);
-        color: var(--bg);
-        box-shadow: 0 0 18px rgba(0, 229, 255, 0.2);
-        transform: translateY(-2px);
-    }
-
-    .arcade-btn:active {
-        transform: translateY(0);
-    }
-
-    .pink-btn {
-        border: 2px solid var(--pink);
-        background: var(--panel);
-        color: var(--pink);
-        transition:
-            background 0.2s ease,
-            color 0.2s ease,
-            transform 0.2s ease;
-    }
-
-    .pink-btn:hover {
-        background: var(--pink);
-        color: white;
-        transform: translateY(-2px);
-    }
-
-    /* Section heading */
-    .section-heading {
-        position: relative;
-        display: inline-block;
-    }
-
-    .section-heading::after {
-        content: "";
-        display: block;
-        width: 45%;
-        height: 2px;
-        margin: 10px auto 0;
-        background: currentColor;
-        opacity: 0.6;
-    }
-
-    /* Project cards */
-    .project-card {
-        min-height: 310px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        background: linear-gradient(
-            145deg,
-            var(--panel),
-            #101219
-        );
-        border: 1px solid var(--border);
-        transition:
-            transform 0.25s ease,
-            border-color 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    .project-card:hover {
-        transform: translateY(-5px);
-        border-color: #464c5b;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-    }
-
-    .project-card.hidden-card {
-        display: none;
-    }
-
-    /* Project category colors */
-    .filter-btn {
-        border: 2px solid var(--border);
-        background: var(--panel);
-        font-family: 'Press Start 2P', monospace;
-        font-size: 9px;
-        padding: 9px 12px;
-        transition:
-            border-color 0.2s ease,
-            background 0.2s ease,
-            color 0.2s ease,
-            transform 0.2s ease;
-    }
-
-    .filter-btn:hover {
-        transform: translateY(-2px);
-    }
-
-    .filter-btn[data-filter="all"] {
-        color: var(--blue);
-    }
-
-    .filter-btn[data-filter="grad"] {
-        color: var(--pink);
-    }
-
-    .filter-btn[data-filter="uni"] {
-        color: var(--blue);
-    }
-
-    .filter-btn[data-filter="personal"] {
-        color: var(--yellow);
-    }
-
-    .filter-btn.active[data-filter="all"],
-    .filter-btn.active[data-filter="uni"] {
-        background: var(--blue);
-        border-color: var(--blue);
-        color: var(--bg);
-    }
-
-    .filter-btn.active[data-filter="grad"] {
-        background: var(--pink);
-        border-color: var(--pink);
-        color: white;
-    }
-
-    .filter-btn.active[data-filter="personal"] {
-        background: var(--yellow);
-        border-color: var(--yellow);
-        color: var(--bg);
-    }
-
-    /* Tech tags */
-    .tech-tag {
-        display: inline-flex;
-        align-items: center;
-        padding: 4px 7px;
-        background: #0c0e13;
-        border: 1px solid #272b35;
-        font-family: 'Press Start 2P', monospace;
-        font-size: 8px;
-    }
-
-    /* Skill tiles */
-    .skill-tile {
-        min-height: 105px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        transition:
-            transform 0.2s ease,
-            border-color 0.2s ease,
-            background 0.2s ease;
-    }
-
-    .skill-tile:hover {
-        transform: translateY(-4px);
-        background: var(--panel-light);
-        border-color: #3e4451;
-    }
-
-    /* Timeline */
-    .timeline {
-        position: relative;
-    }
-
-    .timeline::before {
-        content: "";
-        position: absolute;
-        left: 8px;
-        top: 12px;
-        bottom: 12px;
-        width: 1px;
-        background: var(--border);
-    }
-
-    .timeline-item {
-        position: relative;
-        padding-left: 34px;
-    }
-
-    .timeline-dot {
-        position: absolute;
-        left: 3px;
-        top: 21px;
-        width: 11px;
-        height: 11px;
-        border: 2px solid var(--pink);
-        background: var(--bg);
-    }
-
-    /* Inputs */
-    .arcade-input {
-        width: 100%;
-        box-sizing: border-box;
-        background: var(--bg);
-        border: 1px solid #303541;
-        color: white;
-        font-family: 'VT323', monospace;
-        font-size: 1.25rem;
-        padding: 10px 12px;
-        outline: none;
-        transition:
-            border-color 0.2s ease,
-            box-shadow 0.2s ease;
-    }
-
-    .arcade-input::placeholder {
-        color: #64748b;
-    }
-
-    .arcade-input:focus {
-        border-color: var(--blue);
-        box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.08);
-    }
-
-    /* Blinking cursor */
-    .cursor {
-        display: inline-block;
-        width: 8px;
-        height: 18px;
-        margin-left: 5px;
-        vertical-align: -2px;
-        background: var(--green);
-        animation: blink 1s steps(2, start) infinite;
-    }
-
-    @keyframes blink {
-        50% {
-            opacity: 0;
-        }
-    }
-
-    /* Mobile */
-    @media (max-width: 767px) {
-        body {
-            font-size: 1.15rem;
-        }
-
-        .crt::before,
-        .crt::after {
-            opacity: 0.3;
-        }
-
-        .project-card {
-            min-height: auto;
-        }
-    }
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-            scroll-behavior: auto !important;
-            animation: none !important;
-            transition: none !important;
-        }
-    }
-</style>
-
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="crt">
+
 <!-- HEADER -->
 <header class="sticky top-0 z-50 border-b border-gray-800 bg-arcadeDark/95 backdrop-blur-md">
+
     <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
 
         <a
@@ -440,35 +79,63 @@ Portfolio v2.0.0
             </span>
         </a>
 
+
         <!-- Desktop navigation -->
         <nav
             class="hidden items-center gap-6 font-arcade text-[9px] md:flex"
             aria-label="Main navigation"
         >
-            <a href="#hero" class="text-neonBlue transition hover:text-white">
+
+            <a
+                href="#hero"
+                class="nav-link text-neonBlue transition hover:text-white"
+                data-section="hero"
+            >
                 START
             </a>
 
-            <a href="#experience" class="text-neonYellow transition hover:text-white">
+            <a
+                href="#experience"
+                class="nav-link text-neonYellow transition hover:text-white"
+                data-section="experience"
+            >
                 EXPERIENCE
             </a>
 
-            <a href="#projects" class="text-neonGreen transition hover:text-white">
+            <a
+                href="#projects"
+                class="nav-link text-neonGreen transition hover:text-white"
+                data-section="projects"
+            >
                 MISSIONS
             </a>
 
-            <a href="#skills" class="text-neonBlue transition hover:text-white">
+            <a
+                href="#skills"
+                class="nav-link text-neonBlue transition hover:text-white"
+                data-section="skills"
+            >
                 INVENTORY
             </a>
 
-            <a href="#education" class="text-neonPink transition hover:text-white">
+            <a
+                href="#education"
+                class="nav-link text-neonPink transition hover:text-white"
+                data-section="education"
+            >
                 LEVELS
             </a>
 
-            <a href="#contact" class="text-gray-300 transition hover:text-white">
+            <a
+                href="#contact"
+                class="nav-link text-gray-300 transition hover:text-white"
+                data-section="contact"
+            >
                 CONTACT
             </a>
+
         </nav>
+
 
         <!-- Mobile menu button -->
         <button
@@ -481,7 +148,9 @@ Portfolio v2.0.0
         >
             <i id="menu-icon" class="fa-solid fa-bars text-sm"></i>
         </button>
+
     </div>
+
 
     <!-- Mobile navigation -->
     <nav
@@ -489,11 +158,13 @@ Portfolio v2.0.0
         class="hidden border-t border-gray-800 px-4 pb-4 pt-3 md:hidden"
         aria-label="Mobile navigation"
     >
+
         <div class="flex flex-col gap-2 font-arcade text-[9px]">
 
             <a
                 href="#hero"
                 class="mobile-link px-3 py-3 text-center text-neonBlue transition hover:bg-neonBlue hover:text-black"
+                data-section="hero"
             >
                 START
             </a>
@@ -501,6 +172,7 @@ Portfolio v2.0.0
             <a
                 href="#experience"
                 class="mobile-link px-3 py-3 text-center text-neonYellow transition hover:bg-neonYellow hover:text-black"
+                data-section="experience"
             >
                 EXPERIENCE
             </a>
@@ -508,6 +180,7 @@ Portfolio v2.0.0
             <a
                 href="#projects"
                 class="mobile-link px-3 py-3 text-center text-neonGreen transition hover:bg-neonGreen hover:text-black"
+                data-section="projects"
             >
                 MISSIONS
             </a>
@@ -515,6 +188,7 @@ Portfolio v2.0.0
             <a
                 href="#skills"
                 class="mobile-link px-3 py-3 text-center text-neonBlue transition hover:bg-neonBlue hover:text-black"
+                data-section="skills"
             >
                 INVENTORY
             </a>
@@ -522,6 +196,7 @@ Portfolio v2.0.0
             <a
                 href="#education"
                 class="mobile-link px-3 py-3 text-center text-neonPink transition hover:bg-neonPink hover:text-black"
+                data-section="education"
             >
                 LEVELS
             </a>
@@ -529,12 +204,15 @@ Portfolio v2.0.0
             <a
                 href="#contact"
                 class="mobile-link px-3 py-3 text-center text-white transition hover:bg-white hover:text-black"
+                data-section="contact"
             >
                 CONTACT
             </a>
 
         </div>
+
     </nav>
+
 </header>
 
 
@@ -551,11 +229,13 @@ Portfolio v2.0.0
         <div class="max-w-2xl text-center md:text-left">
 
             <div class="mb-5 inline-flex items-center gap-2 border border-neonGreen/40 bg-neonGreen/5 px-3 py-2">
+
                 <span class="h-1.5 w-1.5 animate-pulse bg-neonGreen"></span>
 
                 <span class="font-arcade text-[8px] text-neonGreen sm:text-[9px]">
                     STATUS: AVAILABLE FOR DEVELOPER ROLES
                 </span>
+
             </div>
 
             <p class="mb-3 font-arcade text-[9px] text-gray-500">
@@ -563,11 +243,15 @@ Portfolio v2.0.0
             </p>
 
             <h1 class="font-arcade text-2xl leading-relaxed tracking-wide text-neonYellow sm:text-4xl">
+
                 PLAYER-CRAFTED
+
                 <br>
+
                 <span class="text-neonBlue">
                     WEB SOLUTIONS
                 </span>
+
             </h1>
 
             <p class="mt-6 max-w-xl text-xl leading-relaxed text-gray-300 sm:text-2xl">
@@ -600,84 +284,115 @@ Portfolio v2.0.0
                 </a>
 
             </div>
-
-            <div class="mt-7 font-arcade text-[8px] text-gray-600">
-                PRESS START TO EXPLORE
-                <span class="cursor"></span>
-            </div>
         </div>
 
 
         <!-- Character card -->
-<aside class="arcade-panel relative p-5">
+        <aside class="arcade-panel relative p-5">
 
-    <div class="absolute right-3 top-3 font-arcade text-[7px] text-gray-600">
-        PLAYER 01
-    </div>
+            <div class="absolute right-3 top-3 font-arcade text-[7px] text-gray-600">
+                PLAYER 01
+            </div>
 
-    <div class="mx-auto mb-5 flex h-24 w-24 items-center justify-center border border-neonBlue/60 bg-arcadeDark shadow-[0_0_25px_rgba(0,229,255,0.08)]">
-        <i class="fa-solid fa-user-astronaut text-4xl text-neonBlue"></i>
-    </div>
+            <div class="mx-auto mb-5 flex h-24 w-24 items-center justify-center border border-neonBlue/60 bg-arcadeDark shadow-[0_0_25px_rgba(0,229,255,0.08)]">
 
-    <div class="text-center">
-        <h2 class="font-arcade text-[11px] leading-relaxed text-neonYellow">
-            PETER HASSANE
-        </h2>
+                <i class="fa-solid fa-user-astronaut text-4xl text-neonBlue"></i>
 
-        <p class="mt-2 font-arcade text-[8px] text-neonGreen">
-            USEK CS GRADUATE
-        </p>
-    </div>
+            </div>
 
-    <!-- Player Profile -->
-    <div class="mt-6 space-y-2.5 border-t border-gray-800 pt-4">
+            <div class="text-center">
 
-        <div class="flex justify-between gap-4 font-vt text-lg">
-            <span class="shrink-0 text-gray-500">CLASS:</span>
-            <span class="text-right text-neonBlue">
-                Full-Stack Developer
-            </span>
-        </div>
+                <h2 class="font-arcade text-[11px] leading-relaxed text-neonYellow">
+                    PETER HASSANE
+                </h2>
 
-        <div class="flex justify-between gap-4 font-vt text-lg">
-            <span class="shrink-0 text-gray-500">EDUCATION:</span>
-            <span class="text-right text-gray-300">
-                B.S. Computer Science
-            </span>
-        </div>
+                <p class="mt-2 font-arcade text-[8px] text-neonGreen">
+                    USEK CS GRADUATE
+                </p>
 
-        <div class="flex justify-between gap-4 font-vt text-lg">
-            <span class="shrink-0 text-gray-500">FOCUS:</span>
-            <span class="text-right text-neonGreen">
-                Web Applications
-            </span>
-        </div>
+            </div>
 
-        <div class="flex justify-between gap-4 font-vt text-lg">
-            <span class="shrink-0 text-gray-500">STATUS:</span>
-            <span class="text-right text-neonPink">
-                Open to Opportunities
-            </span>
-        </div>
 
-        <div class="flex justify-between gap-4 font-vt text-lg">
-            <span class="shrink-0 text-gray-500">LOCATION:</span>
-            <span class="flex items-center gap-2 text-right text-neonYellow">
-                <img
-                    src="https://cdn.jsdelivr.net/gh/tgines/pixel-flags@main/svg/lb-lebanon.svg"
-                    width="20"
-                    height="15"
-                    alt="Lebanon"
-                    class="shrink-0"
-                >
-                Lebanon
-            </span>
-        </div>
+            <!-- Player Profile -->
+            <div class="mt-6 space-y-2.5 border-t border-gray-800 pt-4">
 
-    </div>
+                <div class="flex justify-between gap-4 font-vt text-lg">
 
-</aside>
+                    <span class="shrink-0 text-gray-500">
+                        CLASS:
+                    </span>
 
+                    <span class="text-right text-neonBlue">
+                        Full-Stack Developer
+                    </span>
+
+                </div>
+
+
+                <div class="flex justify-between gap-4 font-vt text-lg">
+
+                    <span class="shrink-0 text-gray-500">
+                        EDUCATION:
+                    </span>
+
+                    <span class="text-right text-gray-300">
+                        B.S. Computer Science
+                    </span>
+
+                </div>
+
+
+                <div class="flex justify-between gap-4 font-vt text-lg">
+
+                    <span class="shrink-0 text-gray-500">
+                        FOCUS:
+                    </span>
+
+                    <span class="text-right text-neonGreen">
+                        Web Applications
+                    </span>
+
+                </div>
+
+
+                <div class="flex justify-between gap-4 font-vt text-lg">
+
+                    <span class="shrink-0 text-gray-500">
+                        STATUS:
+                    </span>
+
+                    <span class="text-right text-neonPink">
+                        Open to Opportunities
+                    </span>
+
+                </div>
+
+
+                <div class="flex justify-between gap-4 font-vt text-lg">
+
+                    <span class="shrink-0 text-gray-500">
+                        LOCATION:
+                    </span>
+
+                    <span class="flex items-center gap-2 text-right text-neonYellow">
+
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/tgines/pixel-flags@main/svg/lb-lebanon.svg"
+                            width="20"
+                            height="15"
+                            alt="Lebanon"
+                            class="shrink-0"
+                        >
+
+                        Lebanon
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </aside>
 
     </section>
 
@@ -686,6 +401,7 @@ Portfolio v2.0.0
     <section id="experience">
 
         <div class="mb-8 text-center">
+
             <h2 class="section-heading font-arcade text-sm text-neonYellow sm:text-lg">
                 &gt; PROFESSIONAL EXPERIENCE
             </h2>
@@ -693,13 +409,16 @@ Portfolio v2.0.0
             <p class="mt-3 text-xl text-gray-500">
                 Industry contributions and internships
             </p>
+
         </div>
+
 
         <article class="arcade-panel mx-auto max-w-3xl p-6 sm:p-7">
 
             <div class="flex flex-col gap-3 border-b border-gray-800 pb-4 sm:flex-row sm:items-start sm:justify-between">
 
                 <div>
+
                     <p class="font-arcade text-[8px] text-neonBlue">
                         INMOBILES HOLDING
                     </p>
@@ -711,6 +430,7 @@ Portfolio v2.0.0
                     <p class="mt-2 font-vt text-lg text-gray-500">
                         Mkalles, Lebanon
                     </p>
+
                 </div>
 
                 <span class="shrink-0 font-arcade text-[8px] text-neonGreen">
@@ -719,6 +439,7 @@ Portfolio v2.0.0
 
             </div>
 
+
             <p class="mt-5 text-xl leading-relaxed text-gray-300">
                 Contributed directly to the full-stack development of a
                 high-performance booking system. Developed scalable
@@ -726,16 +447,29 @@ Portfolio v2.0.0
                 application architectures.
             </p>
 
+
             <div class="mt-5 flex flex-wrap gap-2">
 
-                <span class="tech-tag text-neonGreen">REACT</span>
-                <span class="tech-tag text-neonBlue">NEXT.JS</span>
-                <span class="tech-tag text-neonYellow">ASP.NET</span>
-                <span class="tech-tag text-neonPink">POSTGRESQL</span>
+                <span class="tech-tag text-neonGreen">
+                    REACT
+                </span>
+
+                <span class="tech-tag text-neonBlue">
+                    NEXT.JS
+                </span>
+
+                <span class="tech-tag text-neonYellow">
+                    ASP.NET
+                </span>
+
+                <span class="tech-tag text-neonPink">
+                    POSTGRESQL
+                </span>
 
             </div>
 
         </article>
+
     </section>
 
 
@@ -743,6 +477,7 @@ Portfolio v2.0.0
     <section id="projects">
 
         <div class="mb-7 text-center">
+
             <h2 class="section-heading font-arcade text-sm text-neonGreen sm:text-lg">
                 &gt; SELECT MISSION
             </h2>
@@ -750,6 +485,7 @@ Portfolio v2.0.0
             <p class="mt-3 text-xl text-gray-500">
                 University capstone, coursework, and personal systems
             </p>
+
         </div>
 
 
@@ -805,12 +541,14 @@ Portfolio v2.0.0
             class="grid gap-5 md:grid-cols-2 lg:grid-cols-3"
         >
 
+
             <!-- Silento -->
             <article class="project-card project-item grad p-5">
 
                 <div>
 
                     <div class="mb-4 flex items-start justify-between gap-3">
+
                         <span class="font-arcade text-[8px] text-neonPink">
                             CAPSTONE / USEK
                         </span>
@@ -818,7 +556,9 @@ Portfolio v2.0.0
                         <span class="font-arcade text-[8px] text-neonYellow">
                             2026
                         </span>
+
                     </div>
+
 
                     <h3 class="font-arcade text-[11px] leading-relaxed text-neonYellow">
                         SILENTO
@@ -828,11 +568,13 @@ Portfolio v2.0.0
                         SILENT CAFE LOCATOR
                     </p>
 
+
                     <p class="mt-4 text-xl leading-relaxed text-gray-300">
                         Full-stack web platform for discovering quiet cafés,
                         featuring map and card views, filtering, bookmarking,
                         authentication, and an administrative management system.
                     </p>
+
 
                     <p class="mt-3 text-lg leading-relaxed text-gray-500">
                         Integrated Google Places and Gemini AI to generate a
@@ -841,11 +583,25 @@ Portfolio v2.0.0
 
                 </div>
 
+
                 <div class="mt-5 flex flex-wrap gap-2 border-t border-gray-800 pt-4">
-                    <span class="tech-tag text-neonGreen">NEXT.JS</span>
-                    <span class="tech-tag text-neonBlue">ASP.NET</span>
-                    <span class="tech-tag text-neonYellow">POSTGIS</span>
-                    <span class="tech-tag text-neonPink">GEMINI AI</span>
+
+                    <span class="tech-tag text-neonGreen">
+                        NEXT.JS
+                    </span>
+
+                    <span class="tech-tag text-neonBlue">
+                        ASP.NET
+                    </span>
+
+                    <span class="tech-tag text-neonYellow">
+                        POSTGIS
+                    </span>
+
+                    <span class="tech-tag text-neonPink">
+                        GEMINI AI
+                    </span>
+
                 </div>
 
             </article>
@@ -857,6 +613,7 @@ Portfolio v2.0.0
                 <div>
 
                     <div class="mb-4 flex items-start justify-between gap-3">
+
                         <span class="font-arcade text-[8px] text-neonYellow">
                             SIDE QUEST
                         </span>
@@ -864,17 +621,21 @@ Portfolio v2.0.0
                         <span class="font-arcade text-[8px] text-gray-500">
                             FULL-STACK
                         </span>
+
                     </div>
+
 
                     <h3 class="font-arcade text-[11px] leading-relaxed text-neonYellow">
                         KANBAN TASK MANAGER
                     </h3>
+
 
                     <p class="mt-4 text-xl leading-relaxed text-gray-300">
                         Full-stack task management application with a Kanban
                         workflow supporting standalone tasks and
                         project-based organization.
                     </p>
+
 
                     <p class="mt-3 text-lg leading-relaxed text-gray-500">
                         Includes JWT and Google OAuth authentication,
@@ -884,10 +645,21 @@ Portfolio v2.0.0
 
                 </div>
 
+
                 <div class="mt-5 flex flex-wrap gap-2 border-t border-gray-800 pt-4">
-                    <span class="tech-tag text-neonGreen">NEXT.JS</span>
-                    <span class="tech-tag text-neonBlue">ASP.NET</span>
-                    <span class="tech-tag text-neonYellow">POSTGRESQL</span>
+
+                    <span class="tech-tag text-neonGreen">
+                        NEXT.JS
+                    </span>
+
+                    <span class="tech-tag text-neonBlue">
+                        ASP.NET
+                    </span>
+
+                    <span class="tech-tag text-neonYellow">
+                        POSTGRESQL
+                    </span>
+
                 </div>
 
             </article>
@@ -899,6 +671,7 @@ Portfolio v2.0.0
                 <div>
 
                     <div class="mb-4 flex items-start justify-between gap-3">
+
                         <span class="font-arcade text-[8px] text-neonYellow">
                             SIDE QUEST
                         </span>
@@ -906,17 +679,21 @@ Portfolio v2.0.0
                         <span class="font-arcade text-[8px] text-gray-500">
                             JAVA
                         </span>
+
                     </div>
+
 
                     <h3 class="font-arcade text-[11px] leading-relaxed text-neonYellow">
                         HOSPITAL MANAGEMENT
                     </h3>
+
 
                     <p class="mt-4 text-xl leading-relaxed text-gray-300">
                         Java-based role-controlled management system with
                         token and simulated MFA authentication plus CRUD
                         workflows for patients, doctors, and appointments.
                     </p>
+
 
                     <p class="mt-3 text-lg leading-relaxed text-gray-500">
                         Features global search and OpenFDA integration for
@@ -925,10 +702,21 @@ Portfolio v2.0.0
 
                 </div>
 
+
                 <div class="mt-5 flex flex-wrap gap-2 border-t border-gray-800 pt-4">
-                    <span class="tech-tag text-neonGreen">JAVA</span>
-                    <span class="tech-tag text-neonBlue">RBAC / MFA</span>
-                    <span class="tech-tag text-neonYellow">OPENFDA</span>
+
+                    <span class="tech-tag text-neonGreen">
+                        JAVA
+                    </span>
+
+                    <span class="tech-tag text-neonBlue">
+                        RBAC / MFA
+                    </span>
+
+                    <span class="tech-tag text-neonYellow">
+                        OPENFDA
+                    </span>
+
                 </div>
 
             </article>
@@ -940,6 +728,7 @@ Portfolio v2.0.0
                 <div>
 
                     <div class="mb-4 flex items-start justify-between gap-3">
+
                         <span class="font-arcade text-[8px] text-neonBlue">
                             UNI / USEK
                         </span>
@@ -947,11 +736,14 @@ Portfolio v2.0.0
                         <span class="font-arcade text-[8px] text-gray-500">
                             ML
                         </span>
+
                     </div>
+
 
                     <h3 class="font-arcade text-[11px] leading-relaxed text-neonYellow">
                         CAR PRICE PREDICTION
                     </h3>
+
 
                     <p class="mt-4 text-xl leading-relaxed text-gray-300">
                         Machine learning regression system using Linear
@@ -959,16 +751,28 @@ Portfolio v2.0.0
                         prices after structured data preparation and scaling.
                     </p>
 
+
                     <p class="mt-3 text-lg leading-relaxed text-gray-500">
                         Evaluated model performance using MAE, MSE, and R².
                     </p>
 
                 </div>
 
+
                 <div class="mt-5 flex flex-wrap gap-2 border-t border-gray-800 pt-4">
-                    <span class="tech-tag text-neonGreen">PYTHON</span>
-                    <span class="tech-tag text-neonBlue">SCIKIT-LEARN</span>
-                    <span class="tech-tag text-neonYellow">PANDAS</span>
+
+                    <span class="tech-tag text-neonGreen">
+                        PYTHON
+                    </span>
+
+                    <span class="tech-tag text-neonBlue">
+                        SCIKIT-LEARN
+                    </span>
+
+                    <span class="tech-tag text-neonYellow">
+                        PANDAS
+                    </span>
+
                 </div>
 
             </article>
@@ -980,6 +784,7 @@ Portfolio v2.0.0
                 <div>
 
                     <div class="mb-4 flex items-start justify-between gap-3">
+
                         <span class="font-arcade text-[8px] text-neonBlue">
                             UNI / USEK
                         </span>
@@ -987,17 +792,21 @@ Portfolio v2.0.0
                         <span class="font-arcade text-[8px] text-gray-500">
                             OOP
                         </span>
+
                     </div>
+
 
                     <h3 class="font-arcade text-[11px] leading-relaxed text-neonYellow">
                         BUDGET PLANNER
                     </h3>
+
 
                     <p class="mt-4 text-xl leading-relaxed text-gray-300">
                         Desktop budget planning application built with Java
                         and JavaFX, applying object-oriented design principles
                         to personal finance workflows.
                     </p>
+
 
                     <p class="mt-3 text-lg leading-relaxed text-gray-500">
                         Tracks income and expenses dynamically through an
@@ -1006,15 +815,27 @@ Portfolio v2.0.0
 
                 </div>
 
+
                 <div class="mt-5 flex flex-wrap gap-2 border-t border-gray-800 pt-4">
-                    <span class="tech-tag text-neonGreen">JAVA</span>
-                    <span class="tech-tag text-neonBlue">JAVAFX</span>
-                    <span class="tech-tag text-neonYellow">OOP</span>
+
+                    <span class="tech-tag text-neonGreen">
+                        JAVA
+                    </span>
+
+                    <span class="tech-tag text-neonBlue">
+                        JAVAFX
+                    </span>
+
+                    <span class="tech-tag text-neonYellow">
+                        OOP
+                    </span>
+
                 </div>
 
             </article>
 
         </div>
+
 
         <p
             id="no-projects"
@@ -1032,6 +853,7 @@ Portfolio v2.0.0
     <section id="skills">
 
         <div class="mb-8 text-center">
+
             <h2 class="section-heading font-arcade text-sm text-neonBlue sm:text-lg">
                 &gt; INVENTORY / TECH STACK
             </h2>
@@ -1039,50 +861,76 @@ Portfolio v2.0.0
             <p class="mt-3 text-xl text-gray-500">
                 Tools, languages, and technologies in the loadout
             </p>
+
         </div>
+
 
         <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
 
+
             <div class="skill-tile flex flex-col items-center justify-center gap-3 p-4 text-center">
+
                 <i class="fa-brands fa-react text-2xl text-neonBlue"></i>
+
                 <span class="font-arcade text-[8px] text-gray-200">
                     REACT / NEXT
                 </span>
+
             </div>
 
+
             <div class="skill-tile flex flex-col items-center justify-center gap-3 p-4 text-center">
+
                 <i class="fa-solid fa-code text-2xl text-neonYellow"></i>
+
                 <span class="font-arcade text-[8px] text-gray-200">
                     ASP.NET / C#
                 </span>
+
             </div>
 
+
             <div class="skill-tile flex flex-col items-center justify-center gap-3 p-4 text-center">
+
                 <i class="fa-brands fa-java text-2xl text-neonPink"></i>
+
                 <span class="font-arcade text-[8px] text-gray-200">
                     JAVA / JAVAFX
                 </span>
+
             </div>
 
+
             <div class="skill-tile flex flex-col items-center justify-center gap-3 p-4 text-center">
+
                 <i class="fa-solid fa-database text-2xl text-neonGreen"></i>
+
                 <span class="font-arcade text-[8px] text-gray-200">
                     POSTGRESQL
                 </span>
+
             </div>
 
+
             <div class="skill-tile flex flex-col items-center justify-center gap-3 p-4 text-center">
+
                 <i class="fa-brands fa-python text-2xl text-neonBlue"></i>
+
                 <span class="font-arcade text-[8px] text-gray-200">
                     PYTHON / ML
                 </span>
+
             </div>
 
+
             <div class="skill-tile flex flex-col items-center justify-center gap-3 p-4 text-center">
+
                 <i class="fa-solid fa-plug text-2xl text-neonYellow"></i>
+
                 <span class="font-arcade text-[8px] text-gray-200">
                     REST APIS
                 </span>
+
             </div>
 
         </div>
@@ -1096,6 +944,7 @@ Portfolio v2.0.0
     <section id="education">
 
         <div class="mb-8 text-center">
+
             <h2 class="section-heading font-arcade text-sm text-neonPink sm:text-lg">
                 &gt; STAGE SELECT / EDUCATION
             </h2>
@@ -1103,9 +952,12 @@ Portfolio v2.0.0
             <p class="mt-3 text-xl text-gray-500">
                 Academic checkpoints and foundations
             </p>
+
         </div>
 
+
         <div class="timeline mx-auto max-w-3xl space-y-5">
+
 
             <!-- University -->
             <article class="timeline-item">
@@ -1117,6 +969,7 @@ Portfolio v2.0.0
                     <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
 
                         <div>
+
                             <h3 class="font-arcade text-[10px] leading-relaxed text-neonYellow">
                                 HOLY SPIRIT UNIVERSITY OF KASLIK
                             </h3>
@@ -1124,6 +977,7 @@ Portfolio v2.0.0
                             <p class="mt-2 font-arcade text-[8px] text-neonBlue">
                                 B.S. COMPUTER SCIENCE
                             </p>
+
                         </div>
 
                         <span class="font-arcade text-[8px] text-neonPink">
@@ -1131,6 +985,7 @@ Portfolio v2.0.0
                         </span>
 
                     </div>
+
 
                     <p class="mt-4 text-xl leading-relaxed text-gray-300">
                         Focused on software engineering, algorithms,
@@ -1154,6 +1009,7 @@ Portfolio v2.0.0
                     <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
 
                         <div>
+
                             <h3 class="font-arcade text-[10px] leading-relaxed text-gray-200">
                                 HIGH SCHOOL DIPLOMA
                             </h3>
@@ -1161,6 +1017,7 @@ Portfolio v2.0.0
                             <p class="mt-2 font-arcade text-[8px] text-gray-500">
                                 GENERAL SCIENCES
                             </p>
+
                         </div>
 
                         <span class="font-arcade text-[8px] text-gray-500">
@@ -1168,6 +1025,7 @@ Portfolio v2.0.0
                         </span>
 
                     </div>
+
 
                     <p class="mt-4 text-xl leading-relaxed text-gray-400">
                         Built a strong foundation in mathematics, logic,
@@ -1190,6 +1048,7 @@ Portfolio v2.0.0
     <section id="contact" class="pb-6">
 
         <div class="mb-8 text-center">
+
             <h2 class="section-heading font-arcade text-sm text-neonPink sm:text-lg">
                 &gt; HIGH SCORE / CONTACT P1
             </h2>
@@ -1197,13 +1056,17 @@ Portfolio v2.0.0
             <p class="mt-3 text-xl text-gray-500">
                 Transmit a message across the network
             </p>
+
         </div>
+
 
         <div class="arcade-panel mx-auto max-w-xl p-6 sm:p-7">
 
             <form id="contact-form" class="space-y-5">
 
+
                 <div>
+
                     <label
                         for="name"
                         class="mb-2 block font-arcade text-[9px] text-neonYellow"
@@ -1220,9 +1083,12 @@ Portfolio v2.0.0
                         class="arcade-input"
                         placeholder="Your name or company..."
                     >
+
                 </div>
 
+
                 <div>
+
                     <label
                         for="email"
                         class="mb-2 block font-arcade text-[9px] text-neonBlue"
@@ -1239,9 +1105,12 @@ Portfolio v2.0.0
                         class="arcade-input"
                         placeholder="player@domain.com"
                     >
+
                 </div>
 
+
                 <div>
+
                     <label
                         for="message"
                         class="mb-2 block font-arcade text-[9px] text-neonGreen"
@@ -1257,7 +1126,9 @@ Portfolio v2.0.0
                         class="arcade-input resize-y"
                         placeholder="Discussing a job, internship, or collaboration..."
                     ></textarea>
+
                 </div>
+
 
                 <button
                     type="submit"
@@ -1275,6 +1146,7 @@ Portfolio v2.0.0
                 class="hidden border border-neonGreen bg-arcadeDark p-5 text-center"
                 role="status"
             >
+
                 <i class="fa-solid fa-circle-check text-neonGreen"></i>
 
                 <p class="mt-3 font-arcade text-[9px] text-neonGreen">
@@ -1284,6 +1156,7 @@ Portfolio v2.0.0
                 <p class="mt-2 text-lg text-gray-500">
                     Thanks for reaching out, Player.
                 </p>
+
             </div>
 
         </div>
@@ -1312,6 +1185,7 @@ Portfolio v2.0.0
                 <i class="fa-brands fa-github"></i>
             </a>
 
+
             <a
                 href="https://linkedin.com/in/peter-hassane"
                 target="_blank"
@@ -1321,6 +1195,7 @@ Portfolio v2.0.0
             >
                 <i class="fa-brands fa-linkedin"></i>
             </a>
+
 
             <a
                 href="mailto:contact@example.com"
@@ -1332,9 +1207,11 @@ Portfolio v2.0.0
 
         </div>
 
+
         <p class="font-arcade text-[8px] text-gray-600">
             © 2026 PLAYER 1 — WEB DEV PORTFOLIO
         </p>
+
     </div>
 
 </footer>
@@ -1344,26 +1221,51 @@ Portfolio v2.0.0
      JAVASCRIPT
 ========================================================== -->
 <script>
+
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
 
-    /* Mobile navigation */
+
+    /* =====================================================
+       MOBILE NAVIGATION
+    ====================================================== */
+
     function closeMobileMenu() {
         mobileMenu.classList.add('hidden');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.setAttribute('aria-label', 'Open navigation menu');
-        menuIcon.className = 'fa-solid fa-bars text-sm';
-    }
 
-    function toggleMobileMenu() {
-        const isOpen = !mobileMenu.classList.contains('hidden');
+        menuToggle.setAttribute(
+            'aria-expanded',
+            'false'
+        );
 
-        mobileMenu.classList.toggle('hidden');
-        menuToggle.setAttribute('aria-expanded', String(!isOpen));
         menuToggle.setAttribute(
             'aria-label',
-            isOpen ? 'Open navigation menu' : 'Close navigation menu'
+            'Open navigation menu'
+        );
+
+        menuIcon.className =
+            'fa-solid fa-bars text-sm';
+    }
+
+
+    function toggleMobileMenu() {
+
+        const isOpen =
+            !mobileMenu.classList.contains('hidden');
+
+        mobileMenu.classList.toggle('hidden');
+
+        menuToggle.setAttribute(
+            'aria-expanded',
+            String(!isOpen)
+        );
+
+        menuToggle.setAttribute(
+            'aria-label',
+            isOpen
+                ? 'Open navigation menu'
+                : 'Close navigation menu'
         );
 
         menuIcon.className = isOpen
@@ -1371,70 +1273,344 @@ Portfolio v2.0.0
             : 'fa-solid fa-xmark text-sm';
     }
 
-    menuToggle.addEventListener('click', toggleMobileMenu);
 
-    document.querySelectorAll('.mobile-link').forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-    });
+    menuToggle.addEventListener(
+        'click',
+        toggleMobileMenu
+    );
+
+
+    document
+        .querySelectorAll('.mobile-link')
+        .forEach(link => {
+
+            link.addEventListener(
+                'click',
+                () => {
+
+                    /*
+                     * Immediately update the active state when
+                     * the user clicks a mobile navigation item.
+                     * The observer will continue tracking it after.
+                     */
+                    setActiveSection(
+                        link.dataset.section
+                    );
+
+                    closeMobileMenu();
+                }
+            );
+
+        });
+
 
     /* Close mobile menu with Escape */
-    document.addEventListener('keydown', event => {
-        if (event.key === 'Escape') {
-            closeMobileMenu();
+    document.addEventListener(
+        'keydown',
+        event => {
+
+            if (event.key === 'Escape') {
+                closeMobileMenu();
+            }
+
         }
+    );
+
+
+    /* =====================================================
+       ACTIVE SECTION NAVIGATION
+    ====================================================== */
+
+    const navLinks =
+        document.querySelectorAll('.nav-link');
+
+    const mobileLinks =
+        document.querySelectorAll('.mobile-link');
+
+
+    const sections = [
+        document.getElementById('hero'),
+        document.getElementById('experience'),
+        document.getElementById('projects'),
+        document.getElementById('skills'),
+        document.getElementById('education'),
+        document.getElementById('contact')
+    ].filter(Boolean);
+
+
+    let activeSection = 'hero';
+
+
+    function setActiveSection(sectionId) {
+
+        if (!sectionId) {
+            return;
+        }
+
+        activeSection = sectionId;
+
+
+        navLinks.forEach(link => {
+
+            const isActive =
+                link.dataset.section === sectionId;
+
+            link.classList.toggle(
+                'active',
+                isActive
+            );
+
+            if (isActive) {
+
+                link.setAttribute(
+                    'aria-current',
+                    'page'
+                );
+
+            } else {
+
+                link.removeAttribute(
+                    'aria-current'
+                );
+
+            }
+
+        });
+
+
+        mobileLinks.forEach(link => {
+
+            const isActive =
+                link.dataset.section === sectionId;
+
+            link.classList.toggle(
+                'active',
+                isActive
+            );
+
+            if (isActive) {
+
+                link.setAttribute(
+                    'aria-current',
+                    'page'
+                );
+
+            } else {
+
+                link.removeAttribute(
+                    'aria-current'
+                );
+
+            }
+
+        });
+
+    }
+
+
+    /*
+     * The observer uses a focused area in the viewport rather
+     * than simply detecting whether a section is visible.
+     *
+     * This makes the active navigation feel much smoother while
+     * scrolling through larger sections.
+     */
+    const sectionObserver =
+        new IntersectionObserver(
+            entries => {
+
+                const visibleSections =
+                    entries
+                        .filter(
+                            entry =>
+                                entry.isIntersecting
+                        )
+                        .sort(
+                            (a, b) =>
+                                b.intersectionRatio -
+                                a.intersectionRatio
+                        );
+
+
+                if (
+                    visibleSections.length > 0
+                ) {
+
+                    setActiveSection(
+                        visibleSections[0].target.id
+                    );
+
+                }
+
+            },
+            {
+                root: null,
+
+                /*
+                 * The active section is determined around
+                 * the upper-middle portion of the screen.
+                 */
+                rootMargin:
+                    '-20% 0px -60% 0px',
+
+                threshold: [
+                    0,
+                    0.1,
+                    0.2,
+                    0.3,
+                    0.5,
+                    0.7
+                ]
+            }
+        );
+
+
+    sections.forEach(section => {
+
+        sectionObserver.observe(
+            section
+        );
+
     });
 
 
-    /* Project filtering */
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-item');
-    const noProjectsMessage = document.getElementById('no-projects');
+    /*
+     * Keep the navigation correct when the user scrolls
+     * all the way back to the top of the page.
+     */
+    window.addEventListener(
+        'scroll',
+        () => {
+
+            if (window.scrollY <= 40) {
+                setActiveSection('hero');
+            }
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    /*
+     * Initial state
+     */
+    setActiveSection('hero');
+
+
+    /* =====================================================
+       PROJECT FILTERING
+    ====================================================== */
+
+    const filterButtons =
+        document.querySelectorAll('.filter-btn');
+
+    const projectCards =
+        document.querySelectorAll('.project-item');
+
+    const noProjectsMessage =
+        document.getElementById('no-projects');
+
 
     function filterProjects(category) {
+
         let visibleCount = 0;
 
+
         projectCards.forEach(card => {
+
             const shouldShow =
                 category === 'all' ||
                 card.classList.contains(category);
 
-            card.classList.toggle('hidden-card', !shouldShow);
+
+            card.classList.toggle(
+                'hidden-card',
+                !shouldShow
+            );
+
 
             if (shouldShow) {
                 visibleCount++;
             }
+
         });
+
 
         filterButtons.forEach(button => {
-            const isActive = button.dataset.filter === category;
 
-            button.classList.toggle('active', isActive);
-            button.setAttribute('aria-pressed', String(isActive));
+            const isActive =
+                button.dataset.filter === category;
+
+
+            button.classList.toggle(
+                'active',
+                isActive
+            );
+
+
+            button.setAttribute(
+                'aria-pressed',
+                String(isActive)
+            );
+
         });
+
 
         noProjectsMessage.classList.toggle(
             'hidden',
             visibleCount > 0
         );
+
     }
 
+
     filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            filterProjects(button.dataset.filter);
-        });
+
+        button.addEventListener(
+            'click',
+            () => {
+
+                filterProjects(
+                    button.dataset.filter
+                );
+
+            }
+        );
+
     });
 
 
-    /* Contact form demo feedback */
-    const contactForm = document.getElementById('contact-form');
-    const successBox = document.getElementById('form-success');
+    /* =====================================================
+       CONTACT FORM DEMO FEEDBACK
+    ====================================================== */
 
-    contactForm.addEventListener('submit', event => {
-        event.preventDefault();
+    const contactForm =
+        document.getElementById('contact-form');
 
-        contactForm.classList.add('hidden');
-        successBox.classList.remove('hidden');
-    });
+    const successBox =
+        document.getElementById('form-success');
+
+
+    contactForm.addEventListener(
+        'submit',
+        event => {
+
+            event.preventDefault();
+
+            contactForm.classList.add(
+                'hidden'
+            );
+
+            successBox.classList.remove(
+                'hidden'
+            );
+
+        }
+    );
+
 </script>
+
 </body>
 </html>
