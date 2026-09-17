@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KANBAN TASK MANAGER — Peter Hassane</title>
+
+    <meta
+        name="description"
+        content="Kanban Task Manager — a full-stack task management system built with Next.js, ASP.NET Core and PostgreSQL."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        arcade: ['"Press Start 2P"', 'monospace'],
+                        vt: ['"VT323"', 'monospace']
+                    },
+
+                    colors: {
+                        arcadeDark: '#0b0c10',
+                        arcadePanel: '#12141c',
+                        arcadePanelLight: '#181b25',
+                        neonPink: '#ff007f',
+                        neonBlue: '#00e5ff',
+                        neonGreen: '#00ff66',
+                        neonYellow: '#ffea00'
+                    }
+                }
+            }
+        };
+    </script>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="crt bg-arcadeDark text-gray-200">
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="sticky top-0 z-50 border-b border-gray-800 bg-arcadeDark/95 backdrop-blur-md">
+
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+
+        <a
+            href="../index.html#hero"
+            class="flex items-center gap-2"
+            aria-label="Return to portfolio"
+        >
+            <span class="h-2.5 w-2.5 bg-neonYellow"></span>
+
+            <span class="font-arcade text-[10px] tracking-wide text-neonYellow sm:text-xs">
+                P1: WEB_DEV
+            </span>
+        </a>
+
+        <a
+            href="../index.html#projects"
+            class="font-arcade text-[8px] text-neonGreen transition hover:text-white sm:text-[9px]"
+        >
+            <span class="text-sm sm:text-base">←</span>
+            MISSIONS
+        </a>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="border-b border-gray-800 px-4 py-20 sm:py-22">
+
+    <div class="mx-auto max-w-6xl">
+
+        <div class="mt-8 flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+
+            <div>
+
+                <div class="mb-6 flex flex-wrap items-center gap-3">
+
+                    <span class="font-arcade text-[8px] text-neonYellow">
+                        SIDE QUEST
+                    </span>
+
+                    <span class="text-gray-700">/</span>
+
+                    <span class="font-arcade text-[8px] text-gray-500">
+                        FULL-STACK SYSTEM
+                    </span>
+
+                </div>
+
+                <h1 class="max-w-4xl font-arcade text-2xl leading-relaxed text-white sm:text-4xl lg:text-5xl">
+                    KANBAN
+                    <span class="text-neonYellow">TASK MANAGER</span>
+                </h1>
+
+                <p class="mt-7 max-w-2xl font-vt text-2xl leading-relaxed text-gray-400 sm:text-3xl">
+                    A task management system built around flexible organization,
+                    fast state changes, and keeping the entire workflow visible.
+                </p>
+
+            </div>
+
+
+            <div class="border border-neonGreen/30 bg-neonGreen/5 px-4 py-3">
+
+                <p class="font-arcade text-[7px] text-gray-600">
+                    PROJECT TYPE
+                </p>
+
+                <p class="mt-2 font-arcade text-[10px] text-neonGreen">
+                    PERSONAL
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SYSTEM OVERVIEW
+========================================================= -->
+
+<section class="px-4 py-16 sm:py-20">
+
+    <div class="mx-auto max-w-6xl">
+
+        <div class="mb-10 flex items-end justify-between gap-6">
+
+            <div>
+
+                <p class="mb-3 font-arcade text-[8px] text-neonBlue">
+                    01 / SYSTEM
+                </p>
+
+                <h2 class="font-arcade text-xl leading-relaxed text-white sm:text-2xl">
+                    THE WORKSPACE
+                </h2>
+
+            </div>
+
+            <span class="hidden font-arcade text-[8px] text-gray-600 sm:block">
+                CORE STRUCTURE
+            </span>
+
+        </div>
+
+
+        <div class="grid gap-4 md:grid-cols-3">
+
+            <!-- PROJECTS -->
+
+            <article class="border border-gray-800 bg-arcadePanel p-6 md:col-span-2">
+
+                <div class="mb-8 flex items-start justify-between">
+
+                    <div>
+                        <span class="font-arcade text-[8px] text-neonYellow">
+                            PROJECTS
+                        </span>
+
+                        <h3 class="mt-3 font-arcade text-sm leading-relaxed text-white">
+                            ORGANIZE THE WORKSPACE
+                        </h3>
+                    </div>
+
+                    <i class="fa-solid fa-layer-group text-xl text-neonYellow"></i>
+
+                </div>
+
+                <p class="max-w-2xl font-vt text-2xl leading-relaxed text-gray-400">
+                    Projects provide a higher-level structure for grouping related
+                    work, while tasks remain independently manageable.
+                </p>
+
+                <div class="mt-8 grid gap-3 sm:grid-cols-3">
+
+                    <div class="border border-gray-800 bg-arcadePanelLight p-4">
+                        <p class="font-arcade text-[7px] text-gray-500">01</p>
+                        <p class="mt-3 font-vt text-xl text-white">
+                            Unlimited Projects
+                        </p>
+                    </div>
+
+                    <div class="border border-gray-800 bg-arcadePanelLight p-4">
+                        <p class="font-arcade text-[7px] text-gray-500">02</p>
+                        <p class="mt-3 font-vt text-xl text-white">
+                            Project Editing
+                        </p>
+                    </div>
+
+                    <div class="border border-gray-800 bg-arcadePanelLight p-4">
+                        <p class="font-arcade text-[7px] text-gray-500">03</p>
+                        <p class="mt-3 font-vt text-xl text-white">
+                            Project Archiving
+                        </p>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- STANDALONE -->
+
+            <article class="border border-gray-800 bg-arcadePanel p-6">
+
+                <i class="fa-solid fa-bolt text-xl text-neonGreen"></i>
+
+                <p class="mt-7 font-arcade text-[8px] text-gray-500">
+                    QUICK ACCESS
+                </p>
+
+                <h3 class="mt-3 font-arcade text-sm leading-relaxed text-white">
+                    STANDALONE TASKS
+                </h3>
+
+                <p class="mt-5 font-vt text-2xl leading-relaxed text-gray-400">
+                    Tasks do not have to belong to a traditional project.
+                    Independent work can live alongside organized projects.
+                </p>
+
+            </article>
+
+        </div>
+
+
+        <!-- KANBAN FLOW -->
+
+        <div class="mt-4 border border-gray-800 bg-arcadePanel p-6 sm:p-8">
+
+            <div class="mb-8 flex items-center justify-between">
+
+                <div>
+                    <p class="font-arcade text-[8px] text-neonPink">
+                        TASK FLOW
+                    </p>
+
+                    <h3 class="mt-3 font-arcade text-sm text-white">
+                        MOVE. UPDATE. CONTINUE.
+                    </h3>
+                </div>
+
+                <span class="font-arcade text-[8px] text-gray-600">
+                    ZERO-FRICTION
+                </span>
+
+            </div>
+
+
+            <div class="grid gap-3 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-center">
+
+                <div class="border border-gray-800 bg-arcadePanelLight p-6">
+                    <span class="font-arcade text-[8px] text-gray-600">
+                        COLUMN 01
+                    </span>
+
+                    <p class="mt-4 font-arcade text-xs text-neonBlue">
+                        TODO
+                    </p>
+
+                    <p class="mt-3 font-vt text-xl text-gray-400">
+                        Work waiting to begin.
+                    </p>
+                </div>
+
+
+                <div class="hidden text-xl text-neonGreen md:block">
+                    →
+                </div>
+
+
+                <div class="border border-gray-800 bg-arcadePanelLight p-6">
+                    <span class="font-arcade text-[8px] text-gray-600">
+                        COLUMN 02
+                    </span>
+
+                    <p class="mt-4 font-arcade text-xs text-neonYellow">
+                        IN PROGRESS
+                    </p>
+
+                    <p class="mt-3 font-vt text-xl text-gray-400">
+                        Active work currently being handled.
+                    </p>
+                </div>
+
+
+                <div class="hidden text-xl text-neonGreen md:block">
+                    →
+                </div>
+
+
+                <div class="border border-gray-800 bg-arcadePanelLight p-6">
+                    <span class="font-arcade text-[8px] text-gray-600">
+                        COLUMN 03
+                    </span>
+
+                    <p class="mt-4 font-arcade text-xs text-neonGreen">
+                        DONE
+                    </p>
+
+                    <p class="mt-3 font-vt text-xl text-gray-400">
+                        Completed work.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TASK CONTROL
+========================================================= -->
+
+<section class="border-y border-gray-800 bg-arcadePanel px-4 py-16 sm:py-20">
+
+    <div class="mx-auto max-w-6xl">
+
+        <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+
+            <div>
+
+                <p class="mb-3 font-arcade text-[8px] text-neonYellow">
+                    02 / CONTROL
+                </p>
+
+                <h2 class="font-arcade text-xl leading-relaxed text-white sm:text-2xl">
+                    TASK CONTROL
+                </h2>
+
+                <p class="mt-6 max-w-md font-vt text-2xl leading-relaxed text-gray-400">
+                    The task system goes beyond a title and a checkbox.
+                    Each task can carry the information needed to actually
+                    manage the work.
+                </p>
+
+            </div>
+
+
+            <div class="grid gap-3 sm:grid-cols-2">
+
+                <article class="border border-gray-800 bg-arcadeDark p-5">
+
+                    <i class="fa-solid fa-list-check text-lg text-neonGreen"></i>
+
+                    <h3 class="mt-5 font-arcade text-[9px] text-white">
+                        SUBTASKS
+                    </h3>
+
+                    <p class="mt-3 font-vt text-xl text-gray-500">
+                        Break larger tasks into smaller checklist items with
+                        progress tracking and counters.
+                    </p>
+
+                </article>
+
+
+                <article class="border border-gray-800 bg-arcadeDark p-5">
+
+                    <i class="fa-solid fa-flag text-lg text-neonPink"></i>
+
+                    <h3 class="mt-5 font-arcade text-[9px] text-white">
+                        PRIORITY
+                    </h3>
+
+                    <p class="mt-3 font-vt text-xl text-gray-500">
+                        Low, Medium and High priority levels with visual
+                        priority presets.
+                    </p>
+
+                </article>
+
+
+                <article class="border border-gray-800 bg-arcadeDark p-5">
+
+                    <i class="fa-regular fa-calendar text-lg text-neonBlue"></i>
+
+                    <h3 class="mt-5 font-arcade text-[9px] text-white">
+                        DEADLINES
+                    </h3>
+
+                    <p class="mt-3 font-vt text-xl text-gray-500">
+                        Due dates with countdown information to make urgency
+                        visible at a glance.
+                    </p>
+
+                </article>
+
+
+                <article class="border border-gray-800 bg-arcadeDark p-5">
+
+                    <i class="fa-solid fa-thumbtack text-lg text-neonYellow"></i>
+
+                    <h3 class="mt-5 font-arcade text-[9px] text-white">
+                        PINNING
+                    </h3>
+
+                    <p class="mt-3 font-vt text-xl text-gray-500">
+                        Important tasks can be pinned so they stay at the top
+                        of their column.
+                    </p>
+
+                </article>
+
+
+                <article class="border border-gray-800 bg-arcadeDark p-5">
+
+                    <i class="fa-solid fa-arrow-down-wide-short text-lg text-neonGreen"></i>
+
+                    <h3 class="mt-5 font-arcade text-[9px] text-white">
+                        SORTING
+                    </h3>
+
+                    <p class="mt-3 font-vt text-xl text-gray-500">
+                        Sort tasks by due date, alphabetical order or creation
+                        date.
+                    </p>
+
+                </article>
+
+
+                <article class="border border-gray-800 bg-arcadeDark p-5">
+
+                    <i class="fa-solid fa-up-down-left-right text-lg text-neonPink"></i>
+
+                    <h3 class="mt-5 font-arcade text-[9px] text-white">
+                        TASK MOVEMENT
+                    </h3>
+
+                    <p class="mt-3 font-vt text-xl text-gray-500">
+                        Move tasks between workflow columns while keeping the
+                        task lifecycle synchronized.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     COMMAND CENTER
+========================================================= -->
+
+<section class="px-4 py-16 sm:py-20">
+
+    <div class="mx-auto max-w-6xl">
+
+        <div class="mb-10">
+
+            <p class="mb-3 font-arcade text-[8px] text-neonPink">
+                03 / COMMAND CENTER
+            </p>
+
+            <h2 class="font-arcade text-xl leading-relaxed text-white sm:text-2xl">
+                ONE TASK. ONE CONTROL PANEL.
+            </h2>
+
+        </div>
+
+
+        <div class="grid gap-4 lg:grid-cols-[1.25fr_0.75fr]">
+
+            <!-- MAIN COMMAND PANEL -->
+
+            <article class="relative overflow-hidden border border-gray-800 bg-arcadePanel p-6 sm:p-8">
+
+                <div class="absolute right-0 top-0 h-32 w-32 border-l border-b border-gray-800 opacity-50"></div>
+
+                <div class="relative">
+
+                    <div class="flex items-center justify-between">
+
+                        <span class="font-arcade text-[8px] text-neonGreen">
+                            TASK MODAL
+                        </span>
+
+                        <span class="font-arcade text-[8px] text-gray-600">
+                            COMMAND BAR
+                        </span>
+
+                    </div>
+
+
+                    <div class="mt-8 border border-gray-700 bg-arcadeDark p-5">
+
+                        <div class="flex items-start justify-between gap-4">
+
+                            <div>
+
+                                <p class="font-arcade text-[8px] text-gray-600">
+                                    CURRENT TASK
+                                </p>
+
+                                <h3 class="mt-3 font-arcade text-xs leading-relaxed text-white">
+                                    FINISH PROJECT DOCUMENTATION
+                                </h3>
+
+                            </div>
+
+                            <span class="font-arcade text-[7px] text-neonYellow">
+                                HIGH
+                            </span>
+
+                        </div>
+
+
+                        <div class="mt-6 grid gap-2 sm:grid-cols-3">
+
+                            <div class="border border-gray-800 p-3 text-center">
+                                <i class="fa-solid fa-clock text-neonBlue"></i>
+                                <p class="mt-2 font-vt text-lg text-gray-400">
+                                    POSTPONE
+                                </p>
+                            </div>
+
+                            <div class="border border-gray-800 p-3 text-center">
+                                <i class="fa-solid fa-arrow-right-arrow-left text-neonYellow"></i>
+                                <p class="mt-2 font-vt text-lg text-gray-400">
+                                    MOVE
+                                </p>
+                            </div>
+
+                            <div class="border border-gray-800 p-3 text-center">
+                                <i class="fa-solid fa-check text-neonGreen"></i>
+                                <p class="mt-2 font-vt text-lg text-gray-400">
+                                    COMPLETE
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="mt-6 max-w-xl font-vt text-2xl leading-relaxed text-gray-400">
+                        A centralized task modal keeps viewing, editing,
+                        deleting and quick actions in one place instead of
+                        scattering controls across the interface.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- SIDE STACK -->
+
+            <div class="grid gap-4">
+
+                <article class="border border-gray-800 bg-arcadePanel p-6">
+
+                    <p class="font-arcade text-[8px] text-neonBlue">
+                        FAST ACTIONS
+                    </p>
+
+                    <h3 class="mt-4 font-arcade text-xs leading-relaxed text-white">
+                        NO FULL PAGE RELOAD
+                    </h3>
+
+                    <p class="mt-4 font-vt text-xl leading-relaxed text-gray-500">
+                        Editing, deleting and moving tasks can update the
+                        interface directly instead of forcing a complete
+                        refresh.
+                    </p>
+
+                </article>
+
+
+                <article class="border border-gray-800 bg-arcadePanel p-6">
+
+                    <p class="font-arcade text-[8px] text-neonPink">
+                        UI BEHAVIOR
+                    </p>
+
+                    <h3 class="mt-4 font-arcade text-xs leading-relaxed text-white">
+                        KEEP THE FLOW MOVING
+                    </h3>
+
+                    <p class="mt-4 font-vt text-xl leading-relaxed text-gray-500">
+                        The interface is designed around completing actions
+                        without repeatedly breaking the user's context.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ACCOUNT SYSTEM
+========================================================= -->
+
+<section class="border-y border-gray-800 bg-arcadePanel px-4 py-16 sm:py-20">
+
+    <div class="mx-auto max-w-6xl">
+
+        <div class="grid gap-12 lg:grid-cols-[1fr_1.3fr]">
+
+            <div>
+
+                <p class="mb-3 font-arcade text-[8px] text-neonGreen">
+                    04 / IDENTITY
+                </p>
+
+                <h2 class="font-arcade text-xl leading-relaxed text-white sm:text-2xl">
+                    ACCOUNT SYSTEM
+                </h2>
+
+                <p class="mt-6 max-w-md font-vt text-2xl leading-relaxed text-gray-400">
+                    Authentication is part of the application architecture,
+                    not an afterthought.
+                </p>
+
+            </div>
+
+
+            <div class="grid gap-3 sm:grid-cols-2">
+
+                <article class="border border-gray-800 bg-arcadeDark p-5">
+
+                    <i class="fa-solid fa-shield-halved text-neonGreen"></i>
+
+                    <h3 class="mt-4 font-arcade text-[9px] text-white">
+                        JWT AUTH
+                    </h3>
+
+                    <p class="mt-3 font-vt text-xl text-gray-500">
+                        Secure authenticated sessions using JWT-based access.
+                    </p>
+
+                </article>
+
+
+                <article class="border border-gray-800 bg-arcadeDark p-5">
+
+                    <i class="fa-brands fa-google text-neonBlue"></i>
+
+                    <h3 class="mt-4 font-arcade text-[9px] text-white">
+                        GOOGLE OAUTH
+                    </h3>
+
+                    <p class="mt-3 font-vt text-xl text-gray-500">
+                        Google authentication with account-aware settings.
+                    </p>
+
+                </article>
+
+
+                <article class="border border-gray-800 bg-arcadeDark p-5">
+
+                    <i class="fa-solid fa-link text-neonYellow"></i>
+
+                    <h3 class="mt-4 font-arcade text-[9px] text-white">
+                        ACCOUNT LINKING
+                    </h3>
+
+                    <p class="mt-3 font-vt text-xl text-gray-500">
+                        Safeguards around linking authentication methods help
+                        avoid accidental account lockout.
+                    </p>
+
+                </article>
+
+
+                <article class="border border-gray-800 bg-arcadeDark p-5">
+
+                    <i class="fa-solid fa-sliders text-neonPink"></i>
+
+                    <h3 class="mt-4 font-arcade text-[9px] text-white">
+                        SETTINGS HUB
+                    </h3>
+
+                    <p class="mt-3 font-vt text-xl text-gray-500">
+                        Centralized account, workspace and application
+                        preferences.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FEATURE MATRIX
+========================================================= -->
+
+<section class="px-4 py-16 sm:py-20">
+
+    <div class="mx-auto max-w-6xl">
+
+        <div class="mb-10">
+
+            <p class="mb-3 font-arcade text-[8px] text-neonYellow">
+                05 / FEATURE MATRIX
+            </p>
+
+            <h2 class="font-arcade text-xl leading-relaxed text-white sm:text-2xl">
+                EVERYTHING IN THE BUILD
+            </h2>
+
+        </div>
+
+
+        <div class="grid gap-px border border-gray-800 bg-gray-800 sm:grid-cols-2 lg:grid-cols-3">
+
+            <div class="bg-arcadeDark p-6">
+                <span class="font-arcade text-[7px] text-neonBlue">01</span>
+                <h3 class="mt-4 font-arcade text-[9px] text-white">
+                    KANBAN BOARD
+                </h3>
+                <p class="mt-3 font-vt text-xl text-gray-500">
+                    Todo, In Progress and Done workflow columns.
+                </p>
+            </div>
+
+
+            <div class="bg-arcadeDark p-6">
+                <span class="font-arcade text-[7px] text-neonGreen">02</span>
+                <h3 class="mt-4 font-arcade text-[9px] text-white">
+                    TASK LIFECYCLE
+                </h3>
+                <p class="mt-3 font-vt text-xl text-gray-500">
+                    Create, edit, move, complete and remove tasks.
+                </p>
+            </div>
+
+
+            <div class="bg-arcadeDark p-6">
+                <span class="font-arcade text-[7px] text-neonPink">03</span>
+                <h3 class="mt-4 font-arcade text-[9px] text-white">
+                    TASK DETAILS
+                </h3>
+                <p class="mt-3 font-vt text-xl text-gray-500">
+                    Descriptions, creation dates, deadlines and priorities.
+                </p>
+            </div>
+
+
+            <div class="bg-arcadeDark p-6">
+                <span class="font-arcade text-[7px] text-neonYellow">04</span>
+                <h3 class="mt-4 font-arcade text-[9px] text-white">
+                    CHECKLISTS
+                </h3>
+                <p class="mt-3 font-vt text-xl text-gray-500">
+                    Subtasks with progress tracking and bulk checklist actions.
+                </p>
+            </div>
+
+
+            <div class="bg-arcadeDark p-6">
+                <span class="font-arcade text-[7px] text-neonBlue">05</span>
+                <h3 class="mt-4 font-arcade text-[9px] text-white">
+                    PRIORITY PRESETS
+                </h3>
+                <p class="mt-3 font-vt text-xl text-gray-500">
+                    Multiple visual priority styles for faster recognition.
+                </p>
+            </div>
+
+
+            <div class="bg-arcadeDark p-6">
+                <span class="font-arcade text-[7px] text-neonGreen">06</span>
+                <h3 class="mt-4 font-arcade text-[9px] text-white">
+                    SMART SORTING
+                </h3>
+                <p class="mt-3 font-vt text-xl text-gray-500">
+                    Due date, alphabetical and creation-date sorting options.
+                </p>
+            </div>
+
+
+            <div class="bg-arcadeDark p-6">
+                <span class="font-arcade text-[7px] text-neonPink">07</span>
+                <h3 class="mt-4 font-arcade text-[9px] text-white">
+                    PINNED TASKS
+                </h3>
+                <p class="mt-3 font-vt text-xl text-gray-500">
+                    Keep important tasks visible at the top of their column.
+                </p>
+            </div>
+
+
+            <div class="bg-arcadeDark p-6">
+                <span class="font-arcade text-[7px] text-neonYellow">08</span>
+                <h3 class="mt-4 font-arcade text-[9px] text-white">
+                    PROJECT HEALTH
+                </h3>
+                <p class="mt-3 font-vt text-xl text-gray-500">
+                    Visual progress information for project-level visibility.
+                </p>
+            </div>
+
+
+            <div class="bg-arcadeDark p-6">
+                <span class="font-arcade text-[7px] text-neonBlue">09</span>
+                <h3 class="mt-4 font-arcade text-[9px] text-white">
+                    BULK ACTIONS
+                </h3>
+                <p class="mt-3 font-vt text-xl text-gray-500">
+                    Manage multiple checklist items through centralized actions.
+                </p>
+            </div>
+
+
+            <div class="bg-arcadeDark p-6">
+                <span class="font-arcade text-[7px] text-neonGreen">10</span>
+                <h3 class="mt-4 font-arcade text-[9px] text-white">
+                    RESPONSIVE UI
+                </h3>
+                <p class="mt-3 font-vt text-xl text-gray-500">
+                    A responsive Kanban workspace designed around fluid interaction.
+                </p>
+            </div>
+
+
+            <div class="bg-arcadeDark p-6">
+                <span class="font-arcade text-[7px] text-neonPink">11</span>
+                <h3 class="mt-4 font-arcade text-[9px] text-white">
+                    ACCOUNT SETTINGS
+                </h3>
+                <p class="mt-3 font-vt text-xl text-gray-500">
+                    Centralized account and workspace configuration.
+                </p>
+            </div>
+
+
+            <div class="bg-arcadeDark p-6">
+                <span class="font-arcade text-[7px] text-neonYellow">12</span>
+                <h3 class="mt-4 font-arcade text-[9px] text-white">
+                    ARCHIVING
+                </h3>
+                <p class="mt-3 font-vt text-xl text-gray-500">
+                    Projects can be archived without disrupting the workspace.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TECH LOADOUT
+========================================================= -->
+
+<section class="border-y border-gray-800 bg-arcadePanel px-4 py-16 sm:py-20">
+
+    <div class="mx-auto max-w-6xl">
+
+        <div class="mb-10">
+
+            <p class="mb-3 font-arcade text-[8px] text-neonBlue">
+                06 / LOADOUT
+            </p>
+
+            <h2 class="font-arcade text-xl leading-relaxed text-white sm:text-2xl">
+                TECH STACK
+            </h2>
+
+        </div>
+
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+            <article class="border border-gray-800 bg-arcadeDark p-6">
+
+                <i class="fa-brands fa-react text-2xl text-neonBlue"></i>
+
+                <p class="mt-6 font-arcade text-[8px] text-gray-500">
+                    FRONTEND
+                </p>
+
+                <h3 class="mt-3 font-arcade text-xs text-white">
+                    NEXT.JS
+                </h3>
+
+                <p class="mt-4 font-vt text-xl text-gray-500">
+                    Application interface and interactive task workspace.
+                </p>
+
+            </article>
+
+
+            <article class="border border-gray-800 bg-arcadeDark p-6">
+
+                <i class="fa-solid fa-server text-2xl text-neonGreen"></i>
+
+                <p class="mt-6 font-arcade text-[8px] text-gray-500">
+                    BACKEND
+                </p>
+
+                <h3 class="mt-3 font-arcade text-xs text-white">
+                    ASP.NET
+                </h3>
+
+                <p class="mt-4 font-vt text-xl text-gray-500">
+                    API layer handling application logic and task operations.
+                </p>
+
+            </article>
+
+
+            <article class="border border-gray-800 bg-arcadeDark p-6">
+
+                <i class="fa-solid fa-database text-2xl text-neonYellow"></i>
+
+                <p class="mt-6 font-arcade text-[8px] text-gray-500">
+                    DATABASE
+                </p>
+
+                <h3 class="mt-3 font-arcade text-xs text-white">
+                    POSTGRESQL
+                </h3>
+
+                <p class="mt-4 font-vt text-xl text-gray-500">
+                    Persistent storage for users, projects and task relationships.
+                </p>
+
+            </article>
+
+
+            <article class="border border-gray-800 bg-arcadeDark p-6">
+
+                <i class="fa-solid fa-key text-2xl text-neonPink"></i>
+
+                <p class="mt-6 font-arcade text-[8px] text-gray-500">
+                    AUTH
+                </p>
+
+                <h3 class="mt-3 font-arcade text-xs text-white">
+                    JWT + OAUTH
+                </h3>
+
+                <p class="mt-4 font-vt text-xl text-gray-500">
+                    Token-based authentication alongside Google sign-in.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ENGINEERING HIGHLIGHTS
+========================================================= -->
+
+<section class="px-4 py-16 sm:py-20">
+
+    <div class="mx-auto max-w-6xl">
+
+        <div class="mb-12 max-w-2xl">
+
+            <p class="mb-3 font-arcade text-[8px] text-neonPink">
+                07 / ENGINEERING
+            </p>
+
+            <h2 class="font-arcade text-xl leading-relaxed text-white sm:text-2xl">
+                THE INTERESTING PART
+            </h2>
+
+            <p class="mt-6 font-vt text-2xl leading-relaxed text-gray-400">
+                The project became more than a basic CRUD application by
+                focusing on how the interface behaves while work is actually
+                being managed.
+            </p>
+
+        </div>
+
+
+        <div class="space-y-3">
+
+            <article class="group border border-gray-800 bg-arcadePanel p-5 transition hover:border-neonBlue">
+
+                <div class="grid gap-5 sm:grid-cols-[70px_1fr_auto] sm:items-center">
+
+                    <span class="font-arcade text-[9px] text-neonBlue">
+                        01
+                    </span>
+
+                    <div>
+
+                        <h3 class="font-arcade text-[9px] text-white">
+                            SYNCHRONIZED UI STATE
+                        </h3>
+
+                        <p class="mt-3 font-vt text-xl text-gray-500">
+                            Actions update the visible board directly instead
+                            of repeatedly rebuilding the entire page.
+                        </p>
+
+                    </div>
+
+                    <span class="hidden font-arcade text-[7px] text-gray-600 sm:block">
+                        UI / API
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="group border border-gray-800 bg-arcadePanel p-5 transition hover:border-neonGreen">
+
+                <div class="grid gap-5 sm:grid-cols-[70px_1fr_auto] sm:items-center">
+
+                    <span class="font-arcade text-[9px] text-neonGreen">
+                        02
+                    </span>
+
+                    <div>
+
+                        <h3 class="font-arcade text-[9px] text-white">
+                            HIERARCHICAL TASK OWNERSHIP
+                        </h3>
+
+                        <p class="mt-3 font-vt text-xl text-gray-500">
+                            Users, projects and tasks are connected so both
+                            standalone and project-based work can coexist.
+                        </p>
+
+                    </div>
+
+                    <span class="hidden font-arcade text-[7px] text-gray-600 sm:block">
+                        DATA
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="group border border-gray-800 bg-arcadePanel p-5 transition hover:border-neonYellow">
+
+                <div class="grid gap-5 sm:grid-cols-[70px_1fr_auto] sm:items-center">
+
+                    <span class="font-arcade text-[9px] text-neonYellow">
+                        03
+                    </span>
+
+                    <div>
+
+                        <h3 class="font-arcade text-[9px] text-white">
+                            MULTI-MODE AUTHENTICATION
+                        </h3>
+
+                        <p class="mt-3 font-vt text-xl text-gray-500">
+                            Password-based authentication and Google OAuth
+                            are handled within the same account system.
+                        </p>
+
+                    </div>
+
+                    <span class="hidden font-arcade text-[7px] text-gray-600 sm:block">
+                        AUTH
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="group border border-gray-800 bg-arcadePanel p-5 transition hover:border-neonPink">
+
+                <div class="grid gap-5 sm:grid-cols-[70px_1fr_auto] sm:items-center">
+
+                    <span class="font-arcade text-[9px] text-neonPink">
+                        04
+                    </span>
+
+                    <div>
+
+                        <h3 class="font-arcade text-[9px] text-white">
+                            FLEXIBLE WORKFLOW
+                        </h3>
+
+                        <p class="mt-3 font-vt text-xl text-gray-500">
+                            Sorting, priorities, pinning, subtasks and due dates
+                            let the same board adapt to different working styles.
+                        </p>
+
+                    </div>
+
+                    <span class="hidden font-arcade text-[7px] text-gray-600 sm:block">
+                        UX
+                    </span>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL
+========================================================= -->
+
+<section class="border-t border-gray-800 px-4 py-20 sm:py-28">
+
+    <div class="mx-auto max-w-4xl text-center">
+
+        <div class="mb-8 flex justify-center">
+
+            <div class="flex items-center gap-2">
+
+                <span class="h-2 w-2 bg-neonGreen"></span>
+                <span class="h-2 w-2 bg-neonGreen"></span>
+                <span class="h-2 w-2 bg-neonGreen"></span>
+
+            </div>
+
+        </div>
+
+
+        <p class="font-arcade text-[8px] text-neonGreen">
+            SYSTEM COMPLETE
+        </p>
+
+        <h2 class="mt-6 font-arcade text-xl leading-relaxed text-white sm:text-3xl">
+            BUILT TO KEEP
+            <span class="text-neonYellow">WORK MOVING.</span>
+        </h2>
+
+        <p class="mx-auto mt-7 max-w-2xl font-vt text-2xl leading-relaxed text-gray-500">
+            A full-stack task manager where projects, tasks, priorities,
+            authentication and workflow state come together in one workspace.
+        </p>
+
+
+        <a
+            href="../index.html#projects"
+            class="mt-10 inline-flex items-center gap-3 border border-neonGreen px-6 py-4 font-arcade text-[8px] text-neonGreen transition hover:bg-neonGreen hover:text-arcadeDark"
+        >
+            ← BACK TO MISSIONS
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="border-t border-gray-800 bg-arcadeDark px-4 py-7">
+
+<div class="mx-auto max-w-6xl text-center">
+
+    <div class="mb-4 flex justify-center gap-5 text-xl">
+
+        <a
+            href="https://github.com/pph77"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            class="text-neonBlue transition hover:text-white"
+        >
+            <i class="fa-brands fa-github"></i>
+        </a>
+
+
+        <a
+            href="https://linkedin.com/in/peter-hassane"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            class="text-neonPink transition hover:text-white"
+        >
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+
+
+        <a
+            href="mailto:contact@example.com"
+            aria-label="Email"
+            class="text-neonGreen transition hover:text-white"
+        >
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+
+    </div>
+
+
+    <p class="font-arcade text-[8px] text-gray-600">
+        © 2026 PLAYER 1 — WEB DEV PORTFOLIO
+    </p>
+
+</div>
+
+</footer>
+
+</body>
+</html>
