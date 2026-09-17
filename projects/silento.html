@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SILENTO — Mission Brief | Peter Hassane</title>
+
+    <meta
+        name="description"
+        content="Silento — a full-stack silent café locator built with Next.js, ASP.NET Core, PostgreSQL, PostGIS and Gemini AI."
+    >
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+
+                    fontFamily: {
+                        arcade: ['"Press Start 2P"', 'monospace'],
+                        vt: ['"VT323"', 'monospace']
+                    },
+
+                    colors: {
+                        arcadeDark: '#0b0c10',
+                        arcadePanel: '#12141c',
+                        arcadePanelLight: '#181b25',
+                        neonPink: '#ff007f',
+                        neonBlue: '#00e5ff',
+                        neonGreen: '#00ff66',
+                        neonYellow: '#ffea00'
+                    }
+
+                }
+            }
+        };
+    </script>
+
+    <!-- Main portfolio CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body class="crt">
+
+
+<!-- =========================================================
+     HEADER
+========================================================== -->
+
+<header class="sticky top-0 z-50 border-b border-gray-800 bg-arcadeDark/95 backdrop-blur-md">
+
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+
+        <a
+            href="../index.html#hero"
+            class="flex items-center gap-2"
+            aria-label="Return to portfolio"
+        >
+
+            <span class="h-2.5 w-2.5 bg-neonPink"></span>
+
+            <span class="font-arcade text-[10px] tracking-wide text-neonPink sm:text-xs">
+                P1: WEB_DEV
+            </span>
+
+        </a>
+
+
+        <a
+    href="../index.html#projects"
+    class="font-arcade text-[8px] text-neonGreen transition hover:text-white sm:text-[9px]"
+>
+    <span class="text-sm sm:text-base">←</span> MISSIONS
+</a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================== -->
+
+<main class="mx-auto w-full max-w-6xl space-y-20 px-4 py-10 sm:py-14">
+
+
+
+    <!-- =====================================================
+         HERO / MISSION TITLE
+    ====================================================== -->
+
+    <section class="border-b border-gray-800/80 pb-12">
+        <div class="mt-8 flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+
+            <div>
+
+                <p class="font-arcade text-[8px] text-neonPink">
+                    CAPSTONE / USEK
+                </p>
+
+                <h1 class="mt-4 font-arcade text-2xl leading-relaxed text-neonYellow sm:text-4xl">
+                    SILENTO
+                </h1>
+
+                <p class="mt-3 font-arcade text-[8px] text-gray-500 sm:text-[9px]">
+                    SILENT CAFE LOCATOR
+                </p>
+
+            </div>
+
+
+            <div class="border border-neonYellow/30 bg-neonYellow/5 px-4 py-3">
+
+                <p class="font-arcade text-[7px] text-gray-600">
+                    MISSION YEAR
+                </p>
+
+                <p class="mt-2 font-arcade text-[10px] text-neonYellow">
+                    2026
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <p class="mt-8 max-w-4xl text-2xl leading-relaxed text-gray-200 sm:text-3xl">
+            Finding a café is easy.
+            Finding one where you can actually focus is not.
+        </p>
+
+
+        <p class="mt-5 max-w-3xl text-xl leading-relaxed text-gray-500">
+            Silento is a full-stack web platform designed to help users
+            discover cafés suited for studying, remote work, and focused
+            environments through map-based discovery and a dedicated
+            quietness scoring system.
+        </p>
+
+
+        <!-- Tech Loadout -->
+
+        <div class="mt-7 flex flex-wrap gap-2">
+
+            <span class="tech-tag text-neonGreen">
+                NEXT.JS
+            </span>
+
+            <span class="tech-tag text-neonBlue">
+                ASP.NET
+            </span>
+
+            <span class="tech-tag text-neonYellow">
+                POSTGIS
+            </span>
+
+            <span class="tech-tag text-neonPink">
+                GEMINI AI
+            </span>
+
+            <span class="tech-tag text-neonBlue">
+                LEAFLET
+            </span>
+
+            <span class="tech-tag text-neonGreen">
+                JWT
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MISSION BRIEF
+    ====================================================== -->
+
+    <section>
+
+    <div class="mb-7">
+
+        <h2 class="section-heading font-arcade text-sm text-neonGreen sm:text-lg">
+            &gt; MISSION BRIEF
+        </h2>
+
+        <p class="mt-3 text-xl text-gray-500">
+            The problem Silento was built to solve
+        </p>
+
+    </div>
+
+
+    <div class="grid gap-5 md:grid-cols-2">
+
+
+        <article class="arcade-panel mission-accent-pink p-6 sm:p-7">
+
+            <p class="font-arcade text-[8px] text-neonPink">
+                THE PROBLEM
+            </p>
+
+            <p class="mt-5 text-xl leading-relaxed text-gray-300">
+                Cafés have become common spaces for studying,
+                remote work, and informal meetings. However,
+                finding a location that is actually suitable
+                for concentration is often based on trial,
+                error, or personal experience.
+            </p>
+
+        </article>
+
+
+        <article class="arcade-panel mission-accent-blue p-6 sm:p-7">
+
+            <p class="font-arcade text-[8px] text-neonBlue">
+                THE GAP
+            </p>
+
+            <p class="mt-5 text-xl leading-relaxed text-gray-300">
+                Traditional location platforms provide ratings,
+                reviews, and navigation, but they are not
+                specifically designed to evaluate quietness,
+                focus, or work-friendly environments.
+            </p>
+
+        </article>
+
+
+    </div>
+
+
+    <div class="mission-accent-green mt-5 border border-neonGreen/30 bg-neonGreen/5 p-6 sm:p-7">
+
+        <p class="font-arcade text-[8px] text-neonGreen">
+            THE SILENTO APPROACH
+        </p>
+
+        <p class="mt-4 text-xl leading-relaxed text-gray-300">
+            Silento adds a dedicated layer of environmental
+            evaluation to café discovery, allowing users to
+            browse locations while considering their suitability
+            for focused activities.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+    <!-- =====================================================
+         OBJECTIVE
+    ====================================================== -->
+
+    <section>
+
+        <div class="mb-7">
+
+            <h2 class="section-heading font-arcade text-sm text-neonYellow sm:text-lg">
+                &gt; MISSION OBJECTIVE
+            </h2>
+
+            <p class="mt-3 text-xl text-gray-500">
+                What the system was designed to accomplish
+            </p>
+
+        </div>
+
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
+
+            <article class="arcade-panel p-5">
+
+                <p class="font-arcade text-[8px] text-neonGreen">
+                    01 / DISCOVER
+                </p>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-300">
+                    Locate cafés through interactive map and
+                    card-based browsing.
+                </p>
+
+            </article>
+
+
+            <article class="arcade-panel p-5">
+
+                <p class="font-arcade text-[8px] text-neonBlue">
+                    02 / EVALUATE
+                </p>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-300">
+                    Provide a dedicated Silent Score based on
+                    available environmental signals.
+                </p>
+
+            </article>
+
+
+            <article class="arcade-panel p-5">
+
+                <p class="font-arcade text-[8px] text-neonYellow">
+                    03 / FILTER
+                </p>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-300">
+                    Narrow locations using quietness and
+                    available café features.
+                </p>
+
+            </article>
+
+
+            <article class="arcade-panel p-5">
+
+                <p class="font-arcade text-[8px] text-neonPink">
+                    04 / PERSONALIZE
+                </p>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-300">
+                    Save preferred cafés through bookmarking
+                    and account-based features.
+                </p>
+
+            </article>
+
+
+            <article class="arcade-panel p-5">
+
+                <p class="font-arcade text-[8px] text-neonGreen">
+                    05 / MANAGE
+                </p>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-300">
+                    Provide administrators with tools for
+                    managing cafés, branches, and suggestions.
+                </p>
+
+            </article>
+
+
+            <article class="arcade-panel p-5">
+
+                <p class="font-arcade text-[8px] text-neonBlue">
+                    06 / SCALE
+                </p>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-300">
+                    Build the system around modular services
+                    that can support future expansion.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CORE SYSTEM
+    ====================================================== -->
+
+    <section>
+
+        <div class="mb-7">
+
+            <h2 class="section-heading font-arcade text-sm text-neonGreen sm:text-lg">
+                &gt; CORE SYSTEM
+            </h2>
+
+            <p class="mt-3 text-xl text-gray-500">
+                The main gameplay mechanics
+            </p>
+
+        </div>
+
+
+        <div class="space-y-4">
+
+
+            <!-- Feature -->
+
+            <article class="arcade-panel p-6">
+
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-start">
+
+                    <span class="font-arcade text-[9px] text-neonBlue">
+                        01
+                    </span>
+
+                    <div>
+
+                        <h3 class="font-arcade text-[10px] leading-relaxed text-neonYellow">
+                            MAP DISCOVERY
+                        </h3>
+
+                        <p class="mt-3 text-lg leading-relaxed text-gray-400">
+                            An interactive Leaflet map allows users to
+                            explore café locations spatially while
+                            switching between map and structured card views.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="arcade-panel p-6">
+
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-start">
+
+                    <span class="font-arcade text-[9px] text-neonGreen">
+                        02
+                    </span>
+
+                    <div>
+
+                        <h3 class="font-arcade text-[10px] leading-relaxed text-neonYellow">
+                            SILENT SCORE
+                        </h3>
+
+                        <p class="mt-3 text-lg leading-relaxed text-gray-400">
+                            Each café can receive a normalized 1–5
+                            quietness indicator derived from available
+                            review data and semantic analysis.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="arcade-panel p-6">
+
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-start">
+
+                    <span class="font-arcade text-[9px] text-neonYellow">
+                        03
+                    </span>
+
+                    <div>
+
+                        <h3 class="font-arcade text-[10px] leading-relaxed text-neonYellow">
+                            SMART FILTERING
+                        </h3>
+
+                        <p class="mt-3 text-lg leading-relaxed text-gray-400">
+                            Users can narrow café results using the
+                            Silent Score and available amenities such
+                            as Wi-Fi, parking, outdoor seating, and more.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="arcade-panel p-6">
+
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-start">
+
+                    <span class="font-arcade text-[9px] text-neonPink">
+                        04
+                    </span>
+
+                    <div>
+
+                        <h3 class="font-arcade text-[10px] leading-relaxed text-neonYellow">
+                            USER ACCOUNTS
+                        </h3>
+
+                        <p class="mt-3 text-lg leading-relaxed text-gray-400">
+                            JWT authentication, OTP verification,
+                            account management, bookmarking, and
+                            user preferences support personalized use.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="arcade-panel p-6">
+
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-start">
+
+                    <span class="font-arcade text-[9px] text-neonBlue">
+                        05
+                    </span>
+
+                    <div>
+
+                        <h3 class="font-arcade text-[10px] leading-relaxed text-neonYellow">
+                            ADMIN CONTROL
+                        </h3>
+
+                        <p class="mt-3 text-lg leading-relaxed text-gray-400">
+                            A dedicated administration layer handles
+                            café data, branches, features, and user
+                            suggestions through controlled management
+                            workflows.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ARCHITECTURE
+    ====================================================== -->
+
+    <section>
+
+        <div class="mb-7">
+
+            <h2 class="section-heading font-arcade text-sm text-neonBlue sm:text-lg">
+                &gt; SYSTEM ARCHITECTURE
+            </h2>
+
+            <p class="mt-3 text-xl text-gray-500">
+                Four layers working together
+            </p>
+
+        </div>
+
+
+        <div class="grid gap-4 lg:grid-cols-4">
+
+
+            <article class="arcade-panel p-5">
+
+                <p class="font-arcade text-[7px] text-neonBlue">
+                    TIER 01
+                </p>
+
+                <h3 class="mt-4 font-arcade text-[9px] leading-relaxed text-neonYellow">
+                    PRESENTATION
+                </h3>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-400">
+                    Next.js and React power the interface,
+                    map experience, café views, authentication
+                    pages, and administration interface.
+                </p>
+
+            </article>
+
+
+            <article class="arcade-panel p-5">
+
+                <p class="font-arcade text-[7px] text-neonGreen">
+                    TIER 02
+                </p>
+
+                <h3 class="mt-4 font-arcade text-[9px] leading-relaxed text-neonYellow">
+                    APPLICATION
+                </h3>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-400">
+                    ASP.NET Core handles REST APIs, business
+                    logic, authentication, café management,
+                    filtering, and score processing.
+                </p>
+
+            </article>
+
+
+            <article class="arcade-panel p-5">
+
+                <p class="font-arcade text-[7px] text-neonYellow">
+                    TIER 03
+                </p>
+
+                <h3 class="mt-4 font-arcade text-[9px] leading-relaxed text-neonYellow">
+                    DATA
+                </h3>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-400">
+                    PostgreSQL stores relational application
+                    data while PostGIS provides geospatial
+                    capabilities for café locations.
+                </p>
+
+            </article>
+
+
+            <article class="arcade-panel p-5">
+
+                <p class="font-arcade text-[7px] text-neonPink">
+                    TIER 04
+                </p>
+
+                <h3 class="mt-4 font-arcade text-[9px] leading-relaxed text-neonYellow">
+                    EXTERNAL
+                </h3>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-400">
+                    Google services, Gemini AI, and SMTP
+                    email services extend the core application
+                    with external data and processing.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SILENT SCORE
+    ====================================================== -->
+
+    <section>
+
+        <div class="mb-7">
+
+            <h2 class="section-heading font-arcade text-sm text-neonYellow sm:text-lg">
+                &gt; SILENT SCORE
+            </h2>
+
+            <p class="mt-3 text-xl text-gray-500">
+                The system's defining mechanic
+            </p>
+
+        </div>
+
+
+        <div class="arcade-panel p-6 sm:p-8">
+
+
+            <div class="grid gap-8 lg:grid-cols-[1fr_280px]">
+
+
+                <div>
+
+                    <p class="font-arcade text-[8px] text-neonGreen">
+                        WHAT DOES IT MEASURE?
+                    </p>
+
+                    <p class="mt-5 text-xl leading-relaxed text-gray-300">
+                        Traditional café ratings answer whether
+                        people generally like a place. Silento
+                        introduces another question:
+                    </p>
+
+                    <p class="mt-5 font-arcade text-[11px] leading-relaxed text-neonYellow">
+                        "HOW SUITABLE IS THIS PLACE FOR FOCUS?"
+                    </p>
+
+                    <p class="mt-5 text-lg leading-relaxed text-gray-500">
+                        The system processes available café reviews
+                        and extracts noise-related semantic signals
+                        such as quiet, calm, noisy, or crowded.
+                    </p>
+
+                </div>
+
+
+                <div class="border border-gray-800 bg-arcadeDark p-5">
+
+                    <p class="font-arcade text-[7px] text-gray-600">
+                        SCORE RANGE
+                    </p>
+
+                    <div class="mt-6 text-center">
+
+                        <span class="font-arcade text-4xl text-neonGreen">
+                            1—5
+                        </span>
+
+                        <p class="mt-3 font-vt text-xl text-gray-500">
+                            NORMALIZED SCALE
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- Score signals -->
+
+            <div class="mt-8 grid gap-3 sm:grid-cols-2">
+
+
+                <div class="border border-neonGreen/30 bg-neonGreen/5 p-4">
+
+                    <p class="font-arcade text-[8px] text-neonGreen">
+                        POSITIVE SIGNALS
+                    </p>
+
+                    <p class="mt-3 text-lg text-gray-400">
+                        Quiet · Calm · Peaceful
+                    </p>
+
+                </div>
+
+
+                <div class="border border-neonPink/30 bg-neonPink/5 p-4">
+
+                    <p class="font-arcade text-[8px] text-neonPink">
+                        NEGATIVE SIGNALS
+                    </p>
+
+                    <p class="mt-3 text-lg text-gray-400">
+                        Noisy · Crowded · Loud
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- Baseline -->
+
+            <div class="mt-8">
+
+                <p class="font-arcade text-[7px] text-gray-600">
+                    REFERENCE BASELINE
+                </p>
+
+
+                <div class="mt-4 flex items-center gap-2">
+
+                    <span class="font-arcade text-[8px] text-gray-600">
+                        1
+                    </span>
+
+                    <div class="relative h-2 flex-1 bg-gray-800">
+
+                        <div
+                            class="absolute left-1/2 top-0 h-2 w-1/2 bg-neonGreen/60"
+                        ></div>
+
+                        <div
+                            class="absolute left-1/2 top-[-5px] h-4 w-px bg-neonYellow"
+                        ></div>
+
+                    </div>
+
+                    <span class="font-arcade text-[8px] text-neonGreen">
+                        5
+                    </span>
+
+                </div>
+
+
+                <div class="mt-2 flex justify-between font-vt text-lg">
+
+                    <span class="text-gray-600">
+                        NOISIER
+                    </span>
+
+                    <span class="text-neonYellow">
+                        3 = NEUTRAL
+                    </span>
+
+                    <span class="text-gray-600">
+                        QUIETER
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SCORE PIPELINE
+    ====================================================== -->
+
+    <section>
+
+        <div class="mb-7">
+
+            <h2 class="section-heading font-arcade text-sm text-neonPink sm:text-lg">
+                &gt; SCORE PIPELINE
+            </h2>
+
+            <p class="mt-3 text-xl text-gray-500">
+                From review text to a usable signal
+            </p>
+
+        </div>
+
+
+        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+
+
+            <div class="arcade-panel p-5 text-center">
+
+                <p class="font-arcade text-[7px] text-gray-600">
+                    INPUT
+                </p>
+
+                <p class="mt-4 font-arcade text-[9px] leading-relaxed text-neonBlue">
+                    REVIEWS
+                </p>
+
+            </div>
+
+
+            <div class="arcade-panel p-5 text-center">
+
+                <p class="font-arcade text-[7px] text-gray-600">
+                    ANALYSIS
+                </p>
+
+                <p class="mt-4 font-arcade text-[9px] leading-relaxed text-neonPink">
+                    GEMINI AI
+                </p>
+
+            </div>
+
+
+            <div class="arcade-panel p-5 text-center">
+
+                <p class="font-arcade text-[7px] text-gray-600">
+                    SIGNALS
+                </p>
+
+                <p class="mt-4 font-arcade text-[9px] leading-relaxed text-neonYellow">
+                    WEIGHTED
+                </p>
+
+            </div>
+
+
+            <div class="arcade-panel p-5 text-center">
+
+                <p class="font-arcade text-[7px] text-gray-600">
+                    STABILITY
+                </p>
+
+                <p class="mt-4 font-arcade text-[9px] leading-relaxed text-neonGreen">
+                    NORMALIZE
+                </p>
+
+            </div>
+
+
+            <div class="arcade-panel p-5 text-center">
+
+                <p class="font-arcade text-[7px] text-gray-600">
+                    OUTPUT
+                </p>
+
+                <p class="mt-4 font-arcade text-[9px] leading-relaxed text-neonYellow">
+                    1—5 SCORE
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="mt-5 border border-gray-800 bg-arcadePanel p-6">
+
+            <p class="font-vt text-xl leading-relaxed text-gray-500">
+                Each review is transformed into structured signals
+                including positive and negative noise indicators,
+                intensity, and mixed sentiment. These signals are
+                weighted and aggregated around a neutral baseline
+                of 3 before being normalized into the final scale.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+   <!-- =====================================================
+     TECH LOADOUT
+====================================================== -->
+
+<section>
+<div class="mb-7">
+
+    <h2 class="section-heading font-arcade text-sm text-neonBlue sm:text-lg">
+        &gt; TECH LOADOUT
+    </h2>
+
+    <p class="mt-3 text-xl text-gray-500">
+        Weapons, systems, and infrastructure
+    </p>
+
+</div>
+
+
+<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+
+    <!-- FRONTEND -->
+
+    <article class="arcade-panel p-5">
+
+        <p class="font-arcade text-[8px] text-neonBlue">
+            FRONTEND
+        </p>
+
+        <div class="mt-5 grid grid-cols-4 gap-3">
+
+            <!-- Next.js -->
+            <div
+                class="flex h-14 items-center justify-center border border-gray-800 bg-arcadeDark transition hover:border-neonBlue/50 hover:bg-neonBlue/5"
+                title="Next.js"
+            >
+                <img
+                    src="https://cdn.simpleicons.org/nextdotjs/00D9FF"
+                    alt="Next.js"
+                    class="h-7 w-7 object-contain"
+                >
+            </div>
+
+            <!-- React -->
+            <div
+                class="flex h-14 items-center justify-center border border-gray-800 bg-arcadeDark text-neonBlue transition hover:border-neonBlue/50 hover:bg-neonBlue/5"
+                title="React"
+            >
+                <i class="fa-brands fa-react text-2xl"></i>
+            </div>
+
+            <!-- Leaflet -->
+            <div
+                class="flex h-14 items-center justify-center border border-gray-800 bg-arcadeDark text-neonBlue transition hover:border-neonBlue/50 hover:bg-neonBlue/5"
+                title="Leaflet"
+            >
+                <i class="fa-solid fa-map-location-dot text-2xl"></i>
+            </div>
+
+            <!-- Framer Motion -->
+            <div
+                class="flex h-14 items-center justify-center border border-gray-800 bg-arcadeDark text-neonBlue transition hover:border-neonBlue/50 hover:bg-neonBlue/5"
+                title="Framer Motion"
+            >
+                <i class="fa-solid fa-film text-2xl"></i>
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- BACKEND -->
+
+    <article class="arcade-panel p-5">
+
+        <p class="font-arcade text-[8px] text-neonGreen">
+            BACKEND
+        </p>
+
+        <div class="mt-5 grid grid-cols-4 gap-3">
+
+            <!-- ASP.NET Core -->
+            <div
+                class="flex h-14 items-center justify-center border border-gray-800 bg-arcadeDark text-neonGreen transition hover:border-neonGreen/50 hover:bg-neonGreen/5"
+                title="ASP.NET Core"
+            >
+                <i class="fa-brands fa-microsoft text-2xl"></i>
+            </div>
+
+            <!-- C# -->
+            <div
+                class="flex h-14 items-center justify-center border border-gray-800 bg-arcadeDark transition hover:border-neonGreen/50 hover:bg-neonGreen/5"
+                title="C#"
+            >
+                <img
+                    src="https://cdn.simpleicons.org/csharp/FFFFFF"
+                    alt="C#"
+                    class="h-8 w-8 object-contain"
+                >
+            </div>
+
+            <!-- Entity Framework Core -->
+            <div
+                class="flex h-14 items-center justify-center border border-gray-800 bg-arcadeDark text-neonGreen transition hover:border-neonGreen/50 hover:bg-neonGreen/5"
+                title="Entity Framework Core"
+            >
+                <i class="fa-solid fa-database text-2xl"></i>
+            </div>
+
+            <!-- REST APIs -->
+            <div
+                class="flex h-14 items-center justify-center border border-gray-800 bg-arcadeDark text-neonGreen transition hover:border-neonGreen/50 hover:bg-neonGreen/5"
+                title="REST APIs"
+            >
+                <i class="fa-solid fa-server text-2xl"></i>
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- DATA -->
+
+    <article class="arcade-panel p-5">
+
+        <p class="font-arcade text-[8px] text-neonYellow">
+            DATA
+        </p>
+
+        <div class="mt-5 grid grid-cols-4 gap-3">
+
+            <!-- PostgreSQL -->
+            <div
+                class="flex h-14 items-center justify-center border border-gray-800 bg-arcadeDark transition hover:border-neonYellow/50 hover:bg-neonYellow/5"
+                title="PostgreSQL"
+            >
+                <img
+                    src="https://cdn.simpleicons.org/postgresql/FFEA00"
+                    alt="PostgreSQL"
+                    class="h-8 w-8 object-contain"
+                >
+            </div>
+
+            <!-- PostGIS -->
+            <div
+                class="flex h-14 items-center justify-center border border-gray-800 bg-arcadeDark text-neonYellow transition hover:border-neonYellow/50 hover:bg-neonYellow/5"
+                title="PostGIS"
+            >
+                <i class="fa-solid fa-globe text-2xl"></i>
+            </div>
+
+            <!-- Npgsql -->
+            <div
+                class="flex h-14 items-center justify-center border border-gray-800 bg-arcadeDark text-neonYellow transition hover:border-neonYellow/50 hover:bg-neonYellow/5"
+                title="Npgsql"
+            >
+                <i class="fa-solid fa-plug text-2xl"></i>
+            </div>
+
+            <!-- Relational Data -->
+            <div
+                class="flex h-14 items-center justify-center border border-gray-800 bg-arcadeDark text-neonYellow transition hover:border-neonYellow/50 hover:bg-neonYellow/5"
+                title="Relational Data"
+            >
+                <i class="fa-solid fa-table-cells text-2xl"></i>
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- SERVICES -->
+
+    <article class="arcade-panel p-5">
+
+        <p class="font-arcade text-[8px] text-neonPink">
+            SERVICES
+        </p>
+
+        <div class="mt-5 grid grid-cols-4 gap-3">
+
+            <!-- Google Places -->
+            <div
+                class="flex h-14 items-center justify-center border border-gray-800 bg-arcadeDark text-neonPink transition hover:border-neonPink/50 hover:bg-neonPink/5"
+                title="Google Places"
+            >
+                <i class="fa-brands fa-google text-2xl"></i>
+            </div>
+
+            <!-- Gemini AI -->
+            <div
+                class="flex h-14 items-center justify-center border border-gray-800 bg-arcadeDark transition hover:border-neonPink/50 hover:bg-neonPink/5"
+                title="Gemini AI"
+            >
+                <img
+                    src="https://cdn.simpleicons.org/googlegemini/FF007F"
+                    alt="Gemini AI"
+                    class="h-8 w-8 object-contain"
+                >
+            </div>
+
+            <!-- SMTP -->
+            <div
+                class="flex h-14 items-center justify-center border border-gray-800 bg-arcadeDark text-neonPink transition hover:border-neonPink/50 hover:bg-neonPink/5"
+                title="SMTP"
+            >
+                <i class="fa-solid fa-envelope text-2xl"></i>
+            </div>
+
+            <!-- JWT / OTP -->
+            <div
+                class="flex h-14 items-center justify-center border border-gray-800 bg-arcadeDark text-neonPink transition hover:border-neonPink/50 hover:bg-neonPink/5"
+                title="JWT / OTP"
+            >
+                <i class="fa-solid fa-shield-halved text-2xl"></i>
+            </div>
+
+        </div>
+
+    </article>
+
+
+</div>
+</section>
+
+
+
+
+
+    <!-- =====================================================
+         TECHNICAL HIGHLIGHTS
+    ====================================================== -->
+
+    <section>
+
+        <div class="mb-7">
+
+            <h2 class="section-heading font-arcade text-sm text-neonGreen sm:text-lg">
+                &gt; TECHNICAL HIGHLIGHTS
+            </h2>
+
+            <p class="mt-3 text-xl text-gray-500">
+                What made the system more than a basic café directory
+            </p>
+
+        </div>
+
+
+        <div class="grid gap-4 md:grid-cols-2">
+
+
+            <article class="border border-gray-800 bg-arcadePanel p-6">
+
+                <p class="font-arcade text-[8px] text-neonYellow">
+                    GEOSPATIAL DATA
+                </p>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-400">
+                    PostGIS enables café coordinates to be stored
+                    and queried as geospatial data, supporting
+                    location-aware discovery and map functionality.
+                </p>
+
+            </article>
+
+
+            <article class="border border-gray-800 bg-arcadePanel p-6">
+
+                <p class="font-arcade text-[8px] text-neonBlue">
+                    SECURE AUTH
+                </p>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-400">
+                    JWT provides stateless authentication while
+                    OTP verification adds an additional layer
+                    to account registration and recovery flows.
+                </p>
+
+            </article>
+
+
+            <article class="border border-gray-800 bg-arcadePanel p-6">
+
+                <p class="font-arcade text-[8px] text-neonPink">
+                    AI PROCESSING
+                </p>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-400">
+                    Review text is converted into structured
+                    quietness signals before being incorporated
+                    into the scoring mechanism.
+                </p>
+
+            </article>
+
+
+            <article class="border border-gray-800 bg-arcadePanel p-6">
+
+                <p class="font-arcade text-[8px] text-neonGreen">
+                    ADMIN SYSTEM
+                </p>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-400">
+                    Administrative workflows provide controlled
+                    management of cafés, branches, features,
+                    and submitted suggestions.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         BOSS FIGHTS
+    ====================================================== -->
+
+    <section>
+
+        <div class="mb-7">
+
+            <h2 class="section-heading font-arcade text-sm text-neonPink sm:text-lg">
+                &gt; BOSS FIGHTS
+            </h2>
+
+            <p class="mt-3 text-xl text-gray-500">
+                Problems encountered during development
+            </p>
+
+        </div>
+
+
+        <div class="space-y-5">
+
+
+            <article class="arcade-panel p-6 sm:p-7">
+
+                <div class="flex flex-col gap-5 md:flex-row">
+
+                    <div class="md:w-1/4">
+
+                        <p class="font-arcade text-[8px] text-neonPink">
+                            01
+                        </p>
+
+                        <h3 class="mt-3 font-arcade text-[9px] leading-relaxed text-neonYellow">
+                            LIMITED REVIEW DATA
+                        </h3>
+
+                    </div>
+
+
+                    <div class="md:w-3/4">
+
+                        <p class="text-lg leading-relaxed text-gray-400">
+                            Review availability varied between café
+                            branches, creating a risk that small
+                            datasets could produce unstable results.
+                        </p>
+
+                        <p class="mt-4 font-vt text-xl text-neonGreen">
+                            → RESPONSE: NORMALIZATION + STABILIZATION
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="arcade-panel p-6 sm:p-7">
+
+                <div class="flex flex-col gap-5 md:flex-row">
+
+                    <div class="md:w-1/4">
+
+                        <p class="font-arcade text-[8px] text-neonPink">
+                            02
+                        </p>
+
+                        <h3 class="mt-3 font-arcade text-[9px] leading-relaxed text-neonYellow">
+                            EXTERNAL DEPENDENCIES
+                        </h3>
+
+                    </div>
+
+
+                    <div class="md:w-3/4">
+
+                        <p class="text-lg leading-relaxed text-gray-400">
+                            External services introduced dependencies
+                            around café information, reviews, AI
+                            processing, and communication.
+                        </p>
+
+                        <p class="mt-4 font-vt text-xl text-neonGreen">
+                            → RESPONSE: MODULAR SERVICE ARCHITECTURE
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="arcade-panel p-6 sm:p-7">
+
+                <div class="flex flex-col gap-5 md:flex-row">
+
+                    <div class="md:w-1/4">
+
+                        <p class="font-arcade text-[8px] text-neonPink">
+                            03
+                        </p>
+
+                        <h3 class="mt-3 font-arcade text-[9px] leading-relaxed text-neonYellow">
+                            BALANCING THE SCORE
+                        </h3>
+
+                    </div>
+
+
+                    <div class="md:w-3/4">
+
+                        <p class="text-lg leading-relaxed text-gray-400">
+                            A single positive or negative review
+                            should not dominate the overall perception
+                            of a café.
+                        </p>
+
+                        <p class="mt-4 font-vt text-xl text-neonGreen">
+                            → RESPONSE: WEIGHTED SIGNALS + MIXED SENTIMENT
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         RESULTS
+    ====================================================== -->
+
+    <section>
+
+        <div class="mb-7">
+
+            <h2 class="section-heading font-arcade text-sm text-neonYellow sm:text-lg">
+                &gt; MISSION RESULTS
+            </h2>
+
+            <p class="mt-3 text-xl text-gray-500">
+                What the completed system delivers
+            </p>
+
+        </div>
+
+
+        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+
+
+            <div class="border border-neonGreen/30 bg-neonGreen/5 p-5">
+
+                <p class="font-arcade text-[8px] text-neonGreen">
+                    <span class="text-sm sm:text-base">✓</span> MAP DISCOVERY
+                </p>
+
+                <p class="mt-3 text-lg text-gray-400">
+                    Explore cafés through an interactive map.
+                </p>
+
+            </div>
+
+
+            <div class="border border-neonGreen/30 bg-neonGreen/5 p-5">
+
+                <p class="font-arcade text-[8px] text-neonGreen">
+                   <span class="text-sm sm:text-base">✓</span> CARD BROWSING
+                </p>
+
+                <p class="mt-3 text-lg text-gray-400">
+                    Access structured café information quickly.
+                </p>
+
+            </div>
+
+
+            <div class="border border-neonGreen/30 bg-neonGreen/5 p-5">
+
+                <p class="font-arcade text-[8px] text-neonGreen">
+                    <span class="text-sm sm:text-base">✓</span> SILENT SCORE
+                </p>
+
+                <p class="mt-3 text-lg text-gray-400">
+                    Evaluate quietness through a dedicated score.
+                </p>
+
+            </div>
+
+
+            <div class="border border-neonGreen/30 bg-neonGreen/5 p-5">
+
+                <p class="font-arcade text-[8px] text-neonGreen">
+                    <span class="text-sm sm:text-base">✓</span> FILTERING
+                </p>
+
+                <p class="mt-3 text-lg text-gray-400">
+                    Find locations using score and amenities.
+                </p>
+
+            </div>
+
+
+            <div class="border border-neonGreen/30 bg-neonGreen/5 p-5">
+
+                <p class="font-arcade text-[8px] text-neonGreen">
+                    <span class="text-sm sm:text-base">✓</span> BOOKMARKS
+                </p>
+
+                <p class="mt-3 text-lg text-gray-400">
+                    Save preferred locations to user accounts.
+                </p>
+
+            </div>
+
+
+            <div class="border border-neonGreen/30 bg-neonGreen/5 p-5">
+
+                <p class="font-arcade text-[8px] text-neonGreen">
+                    <span class="text-sm sm:text-base">✓</span> ADMIN SYSTEM
+                </p>
+
+                <p class="mt-3 text-lg text-gray-400">
+                    Manage cafés, branches, and suggestions.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         LIMITATIONS
+    ====================================================== -->
+
+    <section>
+
+        <div class="mb-7">
+
+            <h2 class="section-heading font-arcade text-sm text-gray-300 sm:text-lg">
+                &gt; KNOWN LIMITATIONS
+            </h2>
+
+            <p class="mt-3 text-xl text-gray-500">
+                Every system has its boundaries
+            </p>
+
+        </div>
+
+
+        <div class="border border-gray-800 bg-arcadePanel p-6 sm:p-7">
+
+            <div class="space-y-4 font-vt text-xl leading-relaxed text-gray-500">
+
+                <p>
+                    <span class="text-neonYellow">01 //</span>
+                    The Silent Score depends on the availability
+                    and quality of external review data.
+                </p>
+
+                <p>
+                    <span class="text-neonYellow">02 //</span>
+                    Limited review samples can still introduce
+                    partial bias despite normalization.
+                </p>
+
+                <p>
+                    <span class="text-neonYellow">03 //</span>
+                    The Silent Score is an indicator of suitability,
+                    not a real-time measurement of café noise.
+                </p>
+
+                <p>
+                    <span class="text-neonYellow">04 //</span>
+                    External API availability can affect the
+                    consistency and availability of imported data.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MISSION COMPLETE
+    ====================================================== -->
+
+    <section class="pb-8">
+
+
+        <div class="border border-neonGreen/40 bg-neonGreen/5 p-7 text-center sm:p-10">
+
+            <p class="font-arcade text-[8px] text-neonGreen">
+                MISSION STATUS
+            </p>
+
+
+            <h2 class="mt-5 font-arcade text-lg leading-relaxed text-neonYellow sm:text-2xl">
+                MISSION COMPLETE
+            </h2>
+
+
+            <p class="mx-auto mt-5 max-w-2xl text-xl leading-relaxed text-gray-400">
+                Silento evolved from a simple idea — finding a quiet
+                place to study — into a complete full-stack system
+                combining location services, geospatial data,
+                authentication, administrative workflows, and
+                AI-assisted review analysis.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================== -->
+
+<footer class="border-t border-gray-800 bg-arcadeDark px-4 py-7">
+
+    <div class="mx-auto max-w-6xl text-center">
+
+        <div class="mb-4 flex justify-center gap-5 text-xl">
+
+            <a
+                href="https://github.com/pph77"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                class="text-neonBlue transition hover:text-white"
+            >
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+
+            <a
+                href="https://linkedin.com/in/peter-hassane"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                class="text-neonPink transition hover:text-white"
+            >
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+
+
+            <a
+                href="mailto:contact@example.com"
+                aria-label="Email"
+                class="text-neonGreen transition hover:text-white"
+            >
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+
+        </div>
+
+
+        <p class="font-arcade text-[8px] text-gray-600">
+            © 2026 PLAYER 1 — WEB DEV PORTFOLIO
+        </p>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>

@@ -369,6 +369,43 @@ body {
     box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.08);
 }
 
+/* =====================================================
+   MISSION BRIEF ACCENT PANELS
+====================================================== */
+
+.mission-accent-green,
+.mission-accent-pink,
+.mission-accent-blue {
+    position: relative;
+    overflow: hidden;
+}
+
+.mission-accent-green::before,
+.mission-accent-pink::before,
+.mission-accent-blue::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+}
+
+.mission-accent-green::before {
+    background: #00ff66;
+    opacity: .7;
+}
+
+.mission-accent-pink::before {
+    background: #ff007f;
+    opacity: .7;
+}
+
+.mission-accent-blue::before {
+    background: #00e5ff;
+    opacity: .7;
+}
+
 /* Blinking cursor */
 .cursor {
     display: inline-block;
