@@ -369,6 +369,22 @@ body {
     box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.08);
 }
 
+
+/* Message character counter */
+.message-counter {
+    color: var(--muted);
+    transition:
+        color 0.2s ease,
+        text-shadow 0.2s ease;
+}
+
+/* Character limit reached */
+.message-counter-limit {
+    color: #ff4d4d;
+    text-shadow: 0 0 8px rgba(255, 77, 77, 0.35);
+}
+
+
 /* =====================================================
    MISSION BRIEF ACCENT PANELS
 ====================================================== */

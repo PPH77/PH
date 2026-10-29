@@ -398,32 +398,54 @@ Portfolio v2.5.0
 
 
     <!-- EXPERIENCE -->
-    <section id="experience">
+<section id="experience">
 
-        <div class="mb-8 text-center">
+    <div class="mb-8 text-center">
 
-            <h2 class="section-heading font-arcade text-sm text-neonYellow sm:text-lg">
-                &gt; PROFESSIONAL EXPERIENCE
-            </h2>
+        <h2 class="section-heading font-arcade text-sm text-neonYellow sm:text-lg">
+            &gt; PROFESSIONAL EXPERIENCE
+        </h2>
 
-            <p class="mt-3 text-xl text-gray-500">
-                Industry contributions and internships
-            </p>
+        <p class="mt-3 text-xl text-gray-500">
+            Industry contributions and internships
+        </p>
 
-        </div>
+    </div>
 
 
-        <article class="arcade-panel mx-auto max-w-3xl p-6 sm:p-7">
+    <article class="arcade-panel mx-auto max-w-3xl p-6 sm:p-7">
 
-            <div class="flex flex-col gap-3 border-b border-gray-800 pb-4 sm:flex-row sm:items-start sm:justify-between">
+        <div class="flex flex-col gap-4 border-b border-gray-800 pb-5 sm:flex-row sm:items-start sm:justify-between">
 
-                <div>
+            <!-- Company Information -->
 
-                    <p class="font-arcade text-[8px] text-neonBlue">
+            <div class="flex items-center gap-4">
+
+            
+                <!-- Larger Company Logo -->
+               
+               
+                <!--
+                <div class="flex h-[72px] w-[72px] shrink-0 items-center justify-center border border-gray-700 bg-gray-900 p-2 sm:h-[84px] sm:w-[84px]">
+
+                    <img
+                        src="/images/inmobiles-logo.png"
+                        alt="Inmobiles Holding logo"
+                        class="h-full w-full object-contain"
+                    >
+
+                </div>
+            -->
+
+                <!-- Company Name and Role -->
+
+                <div class="min-w-0">
+
+                    <p class="font-arcade text-[8px] leading-relaxed text-neonBlue sm:text-[9px]">
                         INMOBILES HOLDING
                     </p>
 
-                    <h3 class="mt-2 font-arcade text-[11px] leading-relaxed text-neonYellow">
+                    <h3 class="mt-3 font-arcade text-[10px] leading-relaxed text-neonYellow sm:text-[11px]">
                         WEB DEVELOPMENT INTERN
                     </h3>
 
@@ -433,44 +455,53 @@ Portfolio v2.5.0
 
                 </div>
 
-                <span class="shrink-0 font-arcade text-[8px] text-neonGreen">
-                    JUL 2025 — AUG 2025
-                </span>
-
             </div>
 
 
-            <p class="mt-5 text-xl leading-relaxed text-gray-300">
-                Contributed directly to the full-stack development of a
-                high-performance booking system. Developed scalable
-                features and connected backend workflows across modern
-                application architectures.
-            </p>
+            <!-- Employment Period -->
+
+            <span class="w-fit shrink-0 border border-green-900 bg-green-950/40 px-3 py-2 font-arcade text-[8px] text-neonGreen">
+                JUL 2025 — AUG 2025
+            </span>
+
+        </div>
 
 
-            <div class="mt-5 flex flex-wrap gap-2">
+        <!-- Experience Description -->
 
-                <span class="tech-tag text-neonGreen">
-                    REACT
-                </span>
+        <p class="mt-5 text-xl leading-relaxed text-gray-300">
+            Contributed directly to the full-stack development of a
+            high-performance booking system. Developed scalable
+            features and connected backend workflows across modern
+            application architectures.
+        </p>
 
-                <span class="tech-tag text-neonBlue">
-                    NEXT.JS
-                </span>
 
-                <span class="tech-tag text-neonYellow">
-                    ASP.NET
-                </span>
+        <!-- Technologies -->
 
-                <span class="tech-tag text-neonPink">
-                    POSTGRESQL
-                </span>
+        <div class="mt-5 flex flex-wrap gap-2">
 
-            </div>
+            <span class="tech-tag text-neonGreen">
+                REACT
+            </span>
 
-        </article>
+            <span class="tech-tag text-neonBlue">
+                NEXT.JS
+            </span>
 
-    </section>
+            <span class="tech-tag text-neonYellow">
+                ASP.NET
+            </span>
+
+            <span class="tech-tag text-neonPink">
+                POSTGRESQL
+            </span>
+
+        </div>
+
+    </article>
+
+</section>
 
 
     <!-- PROJECTS -->
@@ -1418,23 +1449,36 @@ Portfolio v2.5.0
 
                 <div>
 
-                    <label
-                        for="message"
-                        class="mb-2 block font-arcade text-[9px] text-neonGreen"
-                    >
-                        MESSAGE
-                    </label>
+    <div class="mb-2 flex items-center justify-between">
 
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="5"
-                        required
-                        class="arcade-input resize-y"
-                        placeholder="Discussing a job, internship, or collaboration..."
-                    ></textarea>
+        <label
+            for="message"
+            class="font-arcade text-[9px] text-neonGreen"
+        >
+            MESSAGE
+        </label>
 
-                </div>
+        <span
+            id="message-counter"
+            class="message-counter font-arcade text-[9px]"
+            aria-live="polite"
+        >
+            0/1000
+        </span>
+
+    </div>
+
+    <textarea
+        id="message"
+        name="message"
+        rows="5"
+        required
+        maxlength="1000"
+        class="arcade-input resize-y"
+        placeholder="Discussing a job, internship, or collaboration..."
+    ></textarea>
+
+</div>
 
 
                 <button
@@ -1532,6 +1576,8 @@ Portfolio v2.5.0
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
+    const messageInput = document.getElementById("message");
+    const messageCounter = document.getElementById("message-counter");
 
 
     /* =====================================================
@@ -1622,6 +1668,23 @@ Portfolio v2.5.0
 
         }
     );
+
+    function updateMessageCounter() {
+        const currentLength = messageInput.value.length;
+        const maxLength = 1000;
+
+        messageCounter.textContent = `${currentLength}/${maxLength}`;
+
+        messageCounter.classList.toggle(
+        "message-counter-limit",
+        currentLength >= maxLength
+        );
+
+}
+
+messageInput.addEventListener("input", updateMessageCounter);
+
+updateMessageCounter();
 
 
     /* =====================================================
